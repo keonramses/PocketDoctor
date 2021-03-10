@@ -2,4 +2,10 @@
     <string name="app_name">Pocket Doctor</string>
     <string name="Welcome">Welcome!</string>
     <string name="subtitleWelcome">to Doctor Pocket App</string>
+    <string name="HomeTitle">Home</string>
+    <string name="Profile">Profile</string>
+    <string name="PatientAccount">Patient account</string>
+    <string name="DoctorAccount">Doctor Account</string>
+    <string name="CashierAccount">Cashier Account</string>
+    <string name="UpdateOrCreate">Update or create patient\'s account</string>
 </resources>

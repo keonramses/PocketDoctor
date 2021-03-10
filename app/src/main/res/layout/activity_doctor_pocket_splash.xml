@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".DoctorPocket">
+    tools:context=".DoctorPocketSplash">
 
     <TextView
         android:id="@+id/textView2"
@@ -15,6 +15,7 @@
         android:layout_marginTop="245dp"
         android:layout_marginEnd="133dp"
         android:text="@string/Welcome"
+        android:fontFamily="@font/roboto_regular"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,12 +27,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="120dp"
         android:layout_marginBottom="329dp"
         android:text="@string/subtitleWelcome"
+        android:fontFamily="@font/roboto_regular"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
