@@ -1,7 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <!-- Base application theme. -->
-    <style name="Theme.PocketDoctor" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/gray</item>
         <item name="colorPrimaryVariant">@color/blue</item>
@@ -16,4 +15,5 @@
         <item name="colorOnBackground">@color/black</item>
 
     </style>
+
 </resources>
