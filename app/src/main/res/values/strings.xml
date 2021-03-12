@@ -8,4 +8,13 @@
     <string name="DoctorAccount">Doctor Account</string>
     <string name="CashierAccount">Cashier Account</string>
     <string name="UpdateOrCreate">Update or create patient\'s account</string>
+    <string name="login">Login</string>
+    <string name="hintName">Name</string>
+    <string name="food_tracke">Find a Doctor</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">Password</string>
+    <string name="show">Show</string>
+    <string name="already_hav">ALREADY HAVE ACCOUNT? LOGIN</string>
+    <string name="sign_up">Sign Up</string>
+
 </resources>
