@@ -14,4 +14,7 @@
     <string name="password">Password</string>
     <string name="forgot_your_password">FORGOT YOUR PASSWORD?</string>
     <string name="sign_in_error">Wrong username or password</string>
+    <string name="email">Email</string>
+    <string name="show">Show</string>
+    <string name="already_hav">ALREADY HAVE ACCOUNT? LOGIN</string>
 </resources>
