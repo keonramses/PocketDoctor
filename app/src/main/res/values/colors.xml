@@ -18,4 +18,5 @@
     <color name="orange">#ef6c00</color>
     <color name="purple_dark">#595e96</color>
     <color name="blue_dark">#2f6c74</color>
+    <color name="background">#E5E5E5</color>
 </resources>
