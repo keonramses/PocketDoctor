@@ -8,4 +8,8 @@
     <string name="DoctorAccount">Doctor Account</string>
     <string name="CashierAccount">Cashier Account</string>
     <string name="UpdateOrCreate">Update or create patient\'s account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
 </resources>
