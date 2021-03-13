@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signIn(View view) {
+        edtUsername.setError(null);
+        edtPassword.setError(null);
         boolean isUserExist = this.databaseHelper.findUser(edtUsername.getText().toString(), edtPassword.getText().toString());
         if (isUserExist) {
             gotoMainActivity();
@@ -46,10 +48,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void showSignInError() {
-        edtUsername.setError("Wrong username or password");
-        edtPassword.setError("Wrong username or password");
+        edtUsername.setError(getString(R.string.sign_in_error));
+        edtPassword.setError(getString(R.string.sign_in_error));
     }
 
+    public void gotoForgotPasswordActivity(View view) {
+        //TODO: goto forgot password activity
+    }
 
     public void gotoSignUpActivity(View view) {
         //TODO: navigate to sign up activity
