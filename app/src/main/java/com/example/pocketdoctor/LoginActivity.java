@@ -57,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void gotoSignUpActivity(View view) {
-        //TODO: navigate to sign up activity
-        Toast.makeText(LoginActivity.this, "got to gotoSignUpActivity", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
 }
