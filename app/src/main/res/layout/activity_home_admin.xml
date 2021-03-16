@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeAdmin">
@@ -13,10 +15,10 @@
         android:layout_marginStart="173dp"
         android:layout_marginTop="42dp"
         android:layout_marginEnd="62dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/HomeTitle"
         android:textColor="@color/black"
         android:textSize="24sp"
-        android:fontFamily="@font/roboto_bold"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,9 +29,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="60dp"
+        android:fontFamily="@font/roboto_regular"
         android:text="@string/Profile"
         android:textColor="@color/gray"
-        android:fontFamily="@font/roboto_regular"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -39,12 +41,13 @@
         android:layout_width="328dp"
         android:layout_height="136dp"
         android:layout_marginStart="41dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="42dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="@color/purple"
         android:drawableStart="@drawable/person_36"
         android:fontFamily="@font/roboto_regular"
+        android:onClick="displayUsersActivities"
         android:paddingLeft="55dp"
         android:paddingRight="55dp"
         android:text="@string/PatientAccount"
@@ -52,7 +55,6 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -66,12 +68,13 @@
         android:background="@drawable/round_btn"
         android:backgroundTint="@color/brown"
         android:drawableStart="@drawable/doctor_brown_36"
+        android:fontFamily="@font/roboto_regular"
+        android:onClick="displayUsersActivities"
         android:paddingLeft="55dp"
         android:paddingRight="55dp"
         android:text="@string/DoctorAccount"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:fontFamily="@font/roboto_regular"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,15 +90,43 @@
         android:background="@drawable/round_btn"
         android:backgroundTint="@color/blue"
         android:drawableStart="@drawable/money_36"
+        android:fontFamily="@font/roboto_regular"
+        android:onClick="displayUsersActivities"
         android:paddingLeft="55dp"
         android:paddingRight="55dp"
         android:text="@string/CashierAccount"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:fontFamily="@font/roboto_regular"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonDoctorAccount" />
+
+    <RelativeLayout
+        android:id="@+id/ios_bottom_"
+        android:layout_width="411dp"
+        android:layout_height="84dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="193dp"
+        android:layout_marginEnd="194dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/imgHomeNavBar"
+            app:srcCompat="@drawable/home_24"
+            app:tint="@color/black" />
+    </RelativeLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
