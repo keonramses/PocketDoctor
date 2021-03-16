@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateAdminUserAccountActivity">
+
+    <TextView
+        android:id="@+id/txtUserAccountCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="114dp"
+        android:text="@string/txtUserCreateAccount"
+        android:textColor="#222222"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextPersonName"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="34dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="@string/hintPersonName"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
+
+    <Spinner
+        android:id="@+id/spinnerMsp"
+        android:layout_width="150dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="33dp"
+        android:entries="@array/txtMspSelection"
+        android:gravity="center_horizontal"
+        android:prompt="@string/promptSpinnerMsp"
+        android:spinnerMode="dialog"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPersonPhone" />
+
+    <TextView
+        android:id="@+id/txtCreateUserNameLabel"
+        android:layout_width="39dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="244dp"
+        android:text="@string/txtCreateUserNameLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTexCreateUserEmailAddress"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="33dp"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="@string/hintEmail"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPersonName"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editTextPersonPhone"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="33dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="@string/hintPhone"
+        android:inputType="phone"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTexCreateUserEmailAddress" />
+
+    <TextView
+        android:id="@+id/txtCreateUserEmailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="304dp"
+        android:text="@string/txtCreateUserEmailLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtCreateUserPhoneLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="364dp"
+        android:text="@string/txtCreateUserPhoneLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtMSPLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="424dp"
+        android:text="@string/txtMSPLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="160dp"
+        android:contentDescription="@string/imgAvatarIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserAccountCreate"
+        app:srcCompat="@drawable/avataricon" />
+
+    <RelativeLayout
+        android:id="@+id/ios_bottom_"
+        android:layout_width="411dp"
+        android:layout_height="84dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="193dp"
+        android:layout_marginEnd="194dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:contentDescription="@string/imgHomeNavBar"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/home_24"
+            app:tint="#C4C4C4"
+            android:focusable="true" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/txtAddProfilePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="179dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="174dp"
+        android:text="@string/txtAddProfilePicture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <Button
+        android:id="@+id/btnSaveUserCreation"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="167dp"
+        android:background="@drawable/rectangle_round_button_fill"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/btnSaveNewUser"
+        android:textColor="#828282"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMsp" />
+
+    <Button
+        android:id="@+id/btnCancelUserCreation"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="167dp"
+        android:background="@drawable/rectangle_round_button_clear"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/btnCancelUserCreation"
+        android:textColor="#828282"
+        android:textColorHint="#FFFDFD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMsp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

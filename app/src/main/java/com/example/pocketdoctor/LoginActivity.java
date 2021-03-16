@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void gotoMainActivity() {
-        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        startActivity(new Intent(LoginActivity.this, HomeAdmin.class));
     }
 
     private void showSignInError() {
