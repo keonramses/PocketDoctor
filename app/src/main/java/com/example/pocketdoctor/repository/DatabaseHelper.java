@@ -1,5 +1,6 @@
 package com.example.pocketdoctor.repository;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -74,4 +75,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor result = db.rawQuery(sql, null);
         return result.getCount() > 0;
     }
+
+    public boolean insertData (String userFirstName, String userLastName, String email, String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("first_name", userFirstName);
+        contentValues.put("last_name", userLastName);
+        contentValues.put("email", email);
+        contentValues.put("password", password);
+        long result = db.insert("User", null, contentValues);
+        if(result > 0)
+            return true;
+        else
+            return false;
+    }
+
+
 }

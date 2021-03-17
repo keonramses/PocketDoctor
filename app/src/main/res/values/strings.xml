@@ -11,10 +11,43 @@
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log In</string>
     <string name="name">Name</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
     <string name="password">Password</string>
     <string name="forgot_your_password">FORGOT YOUR PASSWORD?</string>
     <string name="sign_in_error">Wrong username or password</string>
     <string name="email">Email</string>
     <string name="show">Show</string>
     <string name="already_hav">ALREADY HAVE ACCOUNT? LOGIN</string>
+    <string name="imgHomeNavBar">Home</string>
+    <string name="txtUpdateUserAccount">Update or create users’ accounts</string>
+    <string name="txtAdminUserAccountView">User Account</string>
+    <string name="txtSelectAnAction">Select an Action</string>
+    <string name="imagePlus">Plus image</string>
+    <string name="txtCreateNewUserAccountOption">Create new user account</string>
+    <string name="txtAddNewUSer">Click here to add a new user</string>
+    <string name="imagePencil">Pencil Icon</string>
+    <string name="txtEditUserAccountOption">Edit user’s account</string>
+    <string name="txtEditUser">Click here to edit a user’s account</string>
+    <string name="txtUserCreateAccount">Create User account</string>
+    <string name="hintPersonName">Enter User’s name</string>
+    <string name="txtCreateUserNameLabel">Name</string>
+    <string name="hintEmail">Enter User’s email</string>
+    <string name="txtCreateUserEmailLabel">Email</string>
+    <string name="hintPhone">Enter User’s phone number</string>
+    <string name="txtCreateUserPhoneLabel">Phone</string>
+    <string name="promptSpinnerMsp">Select Option</string>
+    <string-array name="txtMspSelection">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string name="txtMSPLabel">MSP</string>
+    <string name="txtAddProfilePicture">Add profile photo</string>
+    <string name="imgAvatarIcon">Avatar Icon</string>
+    <string name="btnSaveNewUser">Save New User</string>
+    <string name="btnCancelUserCreation">Cancel</string>
+    <string name="txtEditUserAccount">Editing User’s account</string>
+    <string name="txtChangeProfilePicture">Change profile photo</string>
+    <string name="buttonEditUser">Save Changes</string>
+    <string name="txtSearchUserIdTitle">Search user’s ID</string>
 </resources>
