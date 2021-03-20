@@ -3,6 +3,7 @@ package com.example.pocketdoctor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -43,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         String sEmail = email.getText().toString();
         String passw = password.getText().toString();
 
-        boolean finduser = this.databaseHelper.findUser(sEmail,passw);
-        if(finduser == false){
+        Cursor finduser = this.databaseHelper.findUser(sEmail,passw);
+        if(finduser.getCount() > 0){
             boolean insert = this.databaseHelper.insertData(fname, lname, sEmail, passw);
             if(insert){
                 Toast.makeText(MainActivity.this, "Registered successfully", Toast.LENGTH_LONG).show();
