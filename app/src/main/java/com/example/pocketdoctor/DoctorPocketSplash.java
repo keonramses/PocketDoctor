@@ -19,7 +19,7 @@ public class DoctorPocketSplash extends AppCompatActivity {
             @Override
             public void run() {
                 finish();
-                startActivity(new Intent(DoctorPocketSplash.this, LoginActivity.class));
+                startActivity(new Intent(DoctorPocketSplash.this, FoodTrackerActivity.class));
             }
         };
         Timer opening = new Timer();

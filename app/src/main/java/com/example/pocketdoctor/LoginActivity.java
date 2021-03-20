@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,8 +37,11 @@ public class LoginActivity extends AppCompatActivity {
     public void signIn(View view) {
         edtUsername.setError(null);
         edtPassword.setError(null);
-        boolean isUserExist = this.databaseHelper.findUser(edtUsername.getText().toString(), edtPassword.getText().toString());
-        if (isUserExist) {
+        Cursor currentUser = this.databaseHelper.findUser(edtUsername.getText().toString(), edtPassword.getText().toString());
+        if (currentUser.getCount() > 0) {
+            currentUser.moveToFirst();
+            String userId = currentUser.getString(0);
+            ((PocketDoctorApplication)getApplication()).setCurrentUserId(userId);
             gotoMainActivity();
         } else {
             showSignInError();
@@ -44,7 +49,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void gotoMainActivity() {
-        startActivity(new Intent(LoginActivity.this, HomeAdmin.class));
+//        startActivity(new Intent(LoginActivity.this, HomeAdmin.class));
+        startActivity(new Intent(LoginActivity.this, FoodTrackerActivity.class));
     }
 
     private void showSignInError() {
