@@ -1,8 +1,9 @@
 package com.example.pocketdoctor;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -11,29 +12,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
 
 import java.util.UUID;
 
-public class CreateAdminUserAccountActivity extends AppCompatActivity {
+public class CreateDoctorAndCashierActivity extends AppCompatActivity {
+
+    TextView title;
+    ImageView imageHome;
+    Button buttonSaveUser;
+    Button buttonCancel;
     EditText name;
     EditText email;
     EditText lastName;
     EditText password;
-    Button buttonSaveUser;
-    Button buttonCancel;
-    ImageView homeImage;
-    Spinner msp;
+    EditText address;
     String nameToSend;
     String emailToSend;
     String lastNameToSend;
     String passwordToSend;
-    String mspStatus;
+    String addressToSend;
     int userType;
     DatabaseHelper databaseHelper;
     UUID userId;
@@ -42,21 +43,34 @@ public class CreateAdminUserAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_user_account);
+        setContentView(R.layout.activity_create_doctor_and_cashier);
+
+        title = findViewById(R.id.createAcctDocTitle);
+        imageHome = findViewById(R.id.imageViewHome);
+        buttonCancel = findViewById(R.id.btnCancelDocAccCreation);
+        buttonSaveUser = findViewById(R.id.btnSaveAccDocCreation);
+        name = findViewById(R.id.createAccDocName);
+        lastName = findViewById(R.id.createAccDocLastName);
+        email = findViewById(R.id.createAccDocEmail);
+        password = findViewById(R.id.createAccDocPasswo);
+        address = findViewById(R.id.createAccDocAddress);
 
         databaseHelper = new DatabaseHelper(this);
 
-        homeImage = findViewById(R.id.imageViewHome);
-        buttonSaveUser = findViewById(R.id.btnSaveUserCreation);
-        buttonCancel = findViewById(R.id.btnCancelUserCreation);
-        name = findViewById(R.id.editTextPersonName);
-        email = findViewById(R.id.editTexCreateUserEmailAddress);
-        lastName = findViewById(R.id.createUserLastName);
-        password = findViewById(R.id.createPassword);
-        msp = findViewById(R.id.spinnerMsp);
-
-
         buttonSaveUser.setEnabled(false);
+
+        Intent i = getIntent();
+        if(i!=null)
+        {
+            if(((PocketDoctorApplication)getApplication()).getCurrentUserType() == 2)
+            {
+                title.setText("Create Doctor Account");
+            }
+            else if(((PocketDoctorApplication)getApplication()).getCurrentUserType() == 3)
+            {
+                title.setText("Create Cashier Account");
+            }
+        }
 
         name.addTextChangedListener(new TextWatcher() {
             @Override
@@ -181,7 +195,6 @@ public class CreateAdminUserAccountActivity extends AppCompatActivity {
             }
         });
 
-
         buttonSaveUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -189,16 +202,16 @@ public class CreateAdminUserAccountActivity extends AppCompatActivity {
                 emailToSend = email.getText().toString();
                 lastNameToSend = lastName.getText().toString();
                 passwordToSend = password.getText().toString();
-                mspStatus = msp.getSelectedItem().toString().toLowerCase();
+                addressToSend = address.getText().toString();
                 userId = UUID.randomUUID();
                 userType = ((PocketDoctorApplication)getApplication()).getCurrentUserType();
                 String userIdToSend = userId.toString();
 
-                boolean isAdded = databaseHelper.insertData(userIdToSend, nameToSend, lastNameToSend, emailToSend, passwordToSend, mspStatus, userType );
+                boolean isAdded = databaseHelper.insertDoctorAndCashier(userIdToSend, nameToSend, lastNameToSend, emailToSend, passwordToSend, addressToSend, userType );
                 if (isAdded) {
-                    Toast.makeText(CreateAdminUserAccountActivity.this, "Record Added", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateDoctorAndCashierActivity.this, "Record Added", Toast.LENGTH_LONG).show();
                 } else
-                    Toast.makeText(CreateAdminUserAccountActivity.this, "Record not Added", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateDoctorAndCashierActivity.this, "Record not Added", Toast.LENGTH_LONG).show();
                 if(!email.getText().toString().matches(emailPattern))
                 {
                     email.setText("");
@@ -206,21 +219,22 @@ public class CreateAdminUserAccountActivity extends AppCompatActivity {
             }
         });
 
+
         buttonCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CreateAdminUserAccountActivity.this, PatientAccountActivity.class));
+                startActivity(new Intent(CreateDoctorAndCashierActivity.this, PatientAccountActivity.class));
             }
         });
 
-        homeImage.setOnClickListener(new View.OnClickListener() {
+        imageHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                homeImage.setColorFilter(Color.parseColor("#222222"));
-                startActivity(new Intent(CreateAdminUserAccountActivity.this, HomeAdmin.class));
+                imageHome.setColorFilter(Color.parseColor("#222222"));
+                startActivity(new Intent(CreateDoctorAndCashierActivity.this, HomeAdmin.class));
             }
         });
 
-    }
 
+    }
 }
