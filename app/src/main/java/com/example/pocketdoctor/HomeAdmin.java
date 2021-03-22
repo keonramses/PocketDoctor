@@ -8,6 +8,7 @@ import android.view.View;
 
 public class HomeAdmin extends AppCompatActivity {
 
+    int userType;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +24,19 @@ public class HomeAdmin extends AppCompatActivity {
         switch(view.getId())
         {
             case R.id.buttonPatientAccount:
-                i.putExtra("buttonOption", 1);
+                //i.putExtra("buttonOption", 1);
+                userType = 1;
+                ((PocketDoctorApplication)getApplication()).setCurrentUserType(userType);
                 break;
             case R.id.buttonDoctorAccount:
-                i.putExtra("buttonOption", 2);
+                //i.putExtra("buttonOption", 2);
+                userType = 2;
+                ((PocketDoctorApplication)getApplication()).setCurrentUserType(userType);
                 break;
             case R.id.buttonCashierAccount:
-                i.putExtra("buttonOption", 3);
+                userType = 3;
+                //i.putExtra("buttonOption", 3);
+                ((PocketDoctorApplication)getApplication()).setCurrentUserType(userType);
                 break;
         }
         startActivity(i);

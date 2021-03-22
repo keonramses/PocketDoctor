@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateDoctorAndCashierActivity">
+
+    <Button
+        android:id="@+id/btnSaveAccDocCreation"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="167dp"
+        android:background="@drawable/rectangle_round_button_fill"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/btnSaveNewUser"
+        android:textColor="#828282"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccDocAddress" />
+
+    <Button
+        android:id="@+id/btnCancelDocAccCreation"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="167dp"
+        android:background="@drawable/rectangle_round_button_clear"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/btnCancelUserCreation"
+        android:textColor="#828282"
+        android:textColorHint="#FFFDFD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSaveAccDocCreation" />
+
+    <RelativeLayout
+        android:id="@+id/ios_bottom_"
+        android:layout_width="407dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="193dp"
+        android:layout_marginEnd="194dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:contentDescription="@string/imgHomeNavBar"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:srcCompat="@drawable/home_24"
+            app:tint="#C4C4C4" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="160dp"
+        android:contentDescription="@string/imgAvatarIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAcctDocTitle"
+        app:srcCompat="@drawable/avataricon" />
+
+    <TextView
+        android:id="@+id/txtAddProfilePhoto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="18dp"
+        android:text="@string/txtAddProfilePicture"
+        app:layout_constraintBottom_toTopOf="@+id/createAccDocName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/createAccDocAddress"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:gravity="center|center_horizontal"
+        android:hint="@string/address"
+        android:inputType="textPersonName|text"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccDocPasswo" />
+
+    <TextView
+        android:id="@+id/txtCreateUserEmailLabel3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="304dp"
+        android:text="@string/txtCreateUserEmailLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtLastName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/lastName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccDocName" />
+
+    <TextView
+        android:id="@+id/txtCreateUserPasdword2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="360dp"
+        android:text="@string/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/createAccDocName"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="34dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="@string/hintPersonName"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/createAccDocEmail"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:hint="@string/hintEmail"
+        android:inputType="textEmailAddress"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccDocLastName" />
+
+    <EditText
+        android:id="@+id/createAccDocLastName"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="34dp"
+        android:ems="10"
+        android:gravity="center|center_horizontal"
+        android:hint="@string/hintLastName"
+        android:inputType="textPersonName"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccDocName" />
+
+    <EditText
+        android:id="@+id/createAccDocPasswo"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:gravity="center|center_horizontal"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccDocEmail" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createAccDocPasswo" />
+
+    <TextView
+        android:id="@+id/txtCreateUserNameLabel3"
+        android:layout_width="39dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="324dp"
+        android:text="@string/txtCreateUserNameLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/createAcctDocTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="114dp"
+        android:gravity="center"
+        android:text="@string/txtUserCreateAccount"
+        android:textColor="#222222"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

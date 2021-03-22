@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     EditText email;
     EditText password;
     DatabaseHelper databaseHelper;
+    Spinner msp;
+    int usertype = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +35,23 @@ public class MainActivity extends AppCompatActivity {
         lastName = findViewById(R.id.editTextTextLastName);
         email = findViewById(R.id.editTextEmailAddress);
         password = findViewById(R.id.editTextTextPassword);
-
-
+        msp = findViewById(R.id.mspRegister);
     }
 
 
     public void signup(View view){
         checkDataEntered();
+        String userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
         String fname = firstName.getText().toString();
         String lname = lastName.getText().toString();
         String sEmail = email.getText().toString();
         String passw = password.getText().toString();
+        String mspr = msp.getSelectedItem().toString();
+
 
         Cursor finduser = this.databaseHelper.findUser(sEmail,passw);
         if(finduser.getCount() > 0){
-            boolean insert = this.databaseHelper.insertData(fname, lname, sEmail, passw);
+            boolean insert = this.databaseHelper.insertData(userId, fname, lname, sEmail, passw, mspr, usertype);
             if(insert){
                 Toast.makeText(MainActivity.this, "Registered successfully", Toast.LENGTH_LONG).show();
                 // TO DO

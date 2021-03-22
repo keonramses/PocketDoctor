@@ -5,6 +5,7 @@ CREATE TABLE User (
     email VARCHAR(100) UNIQUE,
     address VARCHAR(100),
     password VARCHAR(255),
+    msp VARCHAR(50),
     user_type INTEGER,
     PRIMARY KEY (user_id)
 );
@@ -60,4 +61,4 @@ CREATE TABLE DoctorSolution (
     FOREIGN KEY (patient_id) REFERENCES User(user_id) ON DELETE CASCADE,
     FOREIGN KEY (doctor_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
-INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("7d1bb54a-533b-42db-897d-a6cff78c89a7", "Brian", "Vo", "test@test.com", "douglas", "test@test.com", 1);
+INSERT INTO User (user_id, first_name, last_name, email, address, password, msp, user_type) VALUES ("7d1bb54a-533b-42db-897d-a6cff78c89a7", "Brian", "Vo", "test@test.com", "douglas", "test@test.com", "yes", 1);

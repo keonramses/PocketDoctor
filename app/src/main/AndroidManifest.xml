@@ -10,10 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FoodTrackerActivity" android:windowSoftInputMode="adjustNothing"></activity>
+        <activity android:name=".EditDoctorAndCashierActivity"></activity>
+        <activity android:name=".CreateDoctorAndCashierActivity" />
+        <activity android:name=".SearchUserAdminActivity" />
+        <activity
+            android:name=".FoodTrackerActivity"
+            android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".HomeAdmin" />
         <activity android:name=".PatientAccountActivity" />
-        <activity android:name=".SearchUserIdActivity" />
         <activity android:name=".CreateAdminUserAccountActivity" />
         <activity android:name=".EditAdminUserAccountActivity" />
         <activity android:name=".LoginActivity" />
