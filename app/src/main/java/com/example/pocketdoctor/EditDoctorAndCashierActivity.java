@@ -1,5 +1,7 @@
 package com.example.pocketdoctor;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,53 +12,65 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
 
-public class EditAdminUserAccountActivity extends AppCompatActivity {
+public class EditDoctorAndCashierActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     String currentName;
     String currentLastName;
     String currentEmail;
-    String currentMSP;
+    String currentAddress;
     EditText name;
     EditText lastName;
     EditText email;
-    EditText msp;
+    EditText address;
     String userId;
+    TextView title;
     PocketDoctorApplication user;
     Button saveChanges;
-    //used to make a email pattern validation in the email
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_admin_user_account_view);
+        setContentView(R.layout.activity_edit_doctor_and_cashier);
+
         ImageView homeImage = findViewById(R.id.imageViewHome);
-        Button buttonCancelEdition = findViewById(R.id.btnCancelUserEdit);
-        saveChanges = findViewById(R.id.btnSaveUserEdit);
+        Button buttonCancelEdition = findViewById(R.id.btnAccDocCancelEdit);
+        saveChanges = findViewById(R.id.btnAccDocSaveEdit);
         databaseHelper = new DatabaseHelper(this);
 
-        name = findViewById(R.id.editUserName);
-        lastName = findViewById(R.id.editUserLastName);
-        email = findViewById(R.id.editUserEmail);
-        msp = findViewById(R.id.editUserMsp);
+        name = findViewById(R.id.editAccDocName);
+        lastName = findViewById(R.id.editAccDocLastName);
+        email = findViewById(R.id.editAccDocEmail);
+        address = findViewById(R.id.editAccDocAddress);
+        title = findViewById(R.id.editAccDocTitle);
 
-
+        //used to get the object as a result from the search query
         user = (PocketDoctorApplication) getIntent().getSerializableExtra("MyObject");
+
         name.setText(user.getCurrentUserName());
         lastName.setText(user.getCurrentUserLastName());
         email.setText(user.getCurrentUserEmail());
-        msp.setText(user.getCurrentMSP());
+        address.setText(user.getCurrentAddress());
+
+
+        //Set the title of the activity based on the current user type
+        Intent i = getIntent();
+        if(i!=null) {
+            if (((PocketDoctorApplication) getApplication()).getCurrentUserType() == 2) {
+                title.setText("Edit Doctor Account");
+            } else if (((PocketDoctorApplication) getApplication()).getCurrentUserType() == 3) {
+                title.setText("Edit Cashier Account");
+            }
+        }
 
         saveChanges.setEnabled(false);
 
-
+        //All these event listener handles the textchange in the edit text to make some user input
+        //validation
         name.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -67,7 +81,7 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (TextUtils.isEmpty(name.getText()) || TextUtils.isEmpty(lastName.getText())
-                        || TextUtils.isEmpty(email.getText()) || TextUtils.isEmpty(msp.getText())) {
+                        || TextUtils.isEmpty(email.getText()) || TextUtils.isEmpty(address.getText())) {
                     name.setError("There is an empty field");
                     saveChanges.setEnabled(false);
                 }
@@ -77,7 +91,7 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
 
                 if (TextUtils.isEmpty(name.getText()) || TextUtils.isEmpty(lastName.getText())
-                        || TextUtils.isEmpty(email.getText()) || TextUtils.isEmpty(msp.getText())) {
+                        || TextUtils.isEmpty(email.getText()) || TextUtils.isEmpty(address.getText())) {
                     saveChanges.setBackgroundResource(R.drawable.rectangle_round_button_fill);
                     saveChanges.setTextColor(Color.parseColor("#828282"));
                     saveChanges.setEnabled(false);
@@ -98,7 +112,7 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (TextUtils.isEmpty(lastName.getText())||TextUtils.isEmpty(name.getText())||
-                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(msp.getText()) ) {
+                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(address.getText()) ) {
                     lastName.setError("There is an empty field");
                     saveChanges.setEnabled(false);
                 }
@@ -107,7 +121,7 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (TextUtils.isEmpty(lastName.getText())||TextUtils.isEmpty(name.getText())||
-                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(msp.getText())) {
+                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(address.getText())) {
                     saveChanges.setBackgroundResource(R.drawable.rectangle_round_button_fill);
                     saveChanges.setTextColor(Color.parseColor("#828282"));
                     saveChanges.setEnabled(false);
@@ -127,7 +141,7 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (TextUtils.isEmpty(lastName.getText())||TextUtils.isEmpty(name.getText())||
-                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(msp.getText())) {
+                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(address.getText())) {
                     email.setError("Enter a valid email");
                     saveChanges.setEnabled(false);
                 }
@@ -136,7 +150,7 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 if (TextUtils.isEmpty(lastName.getText())||TextUtils.isEmpty(name.getText())||
-                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(msp.getText())) {
+                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(address.getText())) {
                     saveChanges.setBackgroundResource(R.drawable.rectangle_round_button_fill);
                     saveChanges.setTextColor(Color.parseColor("#828282"));
                     saveChanges.setEnabled(false);
@@ -148,7 +162,7 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             }
         });
 
-        msp.addTextChangedListener(new TextWatcher() {
+        address.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -157,8 +171,8 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (TextUtils.isEmpty(lastName.getText())||TextUtils.isEmpty(name.getText())||
-                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(msp.getText())) {
-                    msp.setError("Type yes or no");
+                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(address.getText())) {
+                    address.setError("Type yes or no");
                     saveChanges.setEnabled(false);
 
                 }
@@ -168,7 +182,7 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
 
                 if (TextUtils.isEmpty(lastName.getText())||TextUtils.isEmpty(name.getText())||
-                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(msp.getText())) {
+                        TextUtils.isEmpty(email.getText())||TextUtils.isEmpty(address.getText())) {
                     saveChanges.setBackgroundResource(R.drawable.rectangle_round_button_fill);
                     saveChanges.setTextColor(Color.parseColor("#828282"));
                     saveChanges.setEnabled(false);
@@ -189,18 +203,14 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
                 currentName = name.getText().toString();
                 currentLastName = lastName.getText().toString();
                 currentEmail = email.getText().toString();
-                currentMSP = msp.getText().toString().toLowerCase();
+                currentAddress = address.getText().toString().toLowerCase();
 
-                boolean isUpdated = databaseHelper.upDate(userId, currentName, currentLastName, currentEmail, currentMSP);
+                boolean isUpdated = databaseHelper.upDateDoctorAndCashier(userId, currentName, currentLastName, currentEmail, currentAddress);
 
                 if (isUpdated) {
-                    Toast.makeText(EditAdminUserAccountActivity.this, "Record Updated", Toast.LENGTH_LONG).show();
+                    Toast.makeText(EditDoctorAndCashierActivity.this, "Record Updated", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(EditAdminUserAccountActivity.this, "Record not Updated", Toast.LENGTH_LONG).show();
-                    if(!msp.getText().toString().equalsIgnoreCase("yes") && !msp.getText().toString().equalsIgnoreCase("no"))
-                    {
-                        msp.setText("");
-                    }
+                    Toast.makeText(EditDoctorAndCashierActivity.this, "Record not Updated", Toast.LENGTH_LONG).show();
                     if(!email.getText().toString().matches(emailPattern))
                     {
                         email.setText("");
@@ -212,16 +222,16 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
         buttonCancelEdition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditAdminUserAccountActivity.this, PatientAccountActivity.class));
+                startActivity(new Intent(EditDoctorAndCashierActivity.this, PatientAccountActivity.class));
             }
         });
-
         homeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 homeImage.setColorFilter(Color.parseColor("#222222"));
-                startActivity(new Intent(EditAdminUserAccountActivity.this, HomeAdmin.class));
+                startActivity(new Intent(EditDoctorAndCashierActivity.this, HomeAdmin.class));
             }
         });
     }
+
 }

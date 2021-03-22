@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class PatientAccountActivity extends AppCompatActivity {
 
+    Intent shareIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,22 +27,19 @@ public class PatientAccountActivity extends AppCompatActivity {
         //This Simple Validation verifies which button was pressed and depending on that assign
         //the text to the top of the screen
 
+
         Intent i = getIntent();
-        if(i!=null)
-        {
-            int buttonOption = getIntent().getIntExtra("buttonOption",0);
-            if(buttonOption == 1)
-            {
+        if (i != null) {
+            //int buttonOption = getIntent().getIntExtra("buttonOption",0);
+
+            //if(buttonOption == 1)
+            if (((PocketDoctorApplication) getApplication()).getCurrentUserType() == 1) {
                 screenView.setText("User Account");
-            }
-            else if(buttonOption == 2)
-            {
+            } else if (((PocketDoctorApplication) getApplication()).getCurrentUserType() == 2) {
                 screenView.setText("Doctor Account");
                 imageCreate.setImageResource(R.drawable.plusdoctoricon);
                 imageEdit.setImageResource(R.drawable.pencildoctor);
-            }
-            else if(buttonOption == 3)
-            {
+            } else if (((PocketDoctorApplication) getApplication()).getCurrentUserType() == 3) {
                 screenView.setText("Cashier Account");
                 imageCreate.setImageResource(R.drawable.plusiconcashier);
                 imageEdit.setImageResource(R.drawable.pencilcashier);
@@ -55,14 +54,18 @@ public class PatientAccountActivity extends AppCompatActivity {
             }
         });
     }
-    public void displayOption(View view)
-    {
-        switch (view.getId()){
+
+    public void displayOption(View view) {
+        switch (view.getId()) {
             case R.id.idCreateNewUserAccountView:
-                startActivity(new Intent(PatientAccountActivity.this, CreateAdminUserAccountActivity.class));
+                if (((PocketDoctorApplication) getApplication()).getCurrentUserType() == 2 || ((PocketDoctorApplication) getApplication()).getCurrentUserType() == 3)
+                {
+                    startActivity(new Intent(PatientAccountActivity.this, CreateDoctorAndCashierActivity.class));
+                }else
+                    startActivity(new Intent(PatientAccountActivity.this, CreateAdminUserAccountActivity.class));
                 break;
             case R.id.idEditUserAccountView:
-                startActivity(new Intent(PatientAccountActivity.this, SearchUserIdActivity.class));
+                startActivity(new Intent(PatientAccountActivity.this, SearchUserAdminActivity.class));
                 break;
         }
 
