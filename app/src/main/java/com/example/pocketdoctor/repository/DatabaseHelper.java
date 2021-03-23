@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import com.example.pocketdoctor.EditAdminUserAccountActivity;
 import com.example.pocketdoctor.PocketDoctorApplication;
 
+import com.example.pocketdoctor.PocketDoctorApplication;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -162,7 +164,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return -1;
         }
     }
-
     public Cursor getUsersList(int user_type) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String query = "SELECT user_id, first_name, last_name, email, msp  FROM User WHERE user_type='" + user_type + "';";
@@ -231,5 +232,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+
+    public Cursor getDoctorNearYou()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT user_id, first_name, last_name, address FROM User WHERE user_type = 2";
+        Cursor cursor = db.rawQuery(sql, null);
+        return cursor;
+    }
+
+    public Cursor findDoctor(String docId)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT first_name, last_name, address FROM User WHERE user_id = ?";
+        Cursor cursor = db.rawQuery(sql, new String[] {docId});
+        return cursor;
     }
 }

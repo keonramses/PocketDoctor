@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FindDoctor">
+
+    <TextView
+        android:id="@+id/findDoctor"
+        android:layout_width="150dp"
+        android:layout_height="38dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="140dp"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/find_doctor"
+        android:textAppearance="@style/sign_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtSignUp"
+        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtSignUp"
+        android:layout_width="62dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="35dp"
+        android:clickable="true"
+        android:gravity="top"
+        android:focusable="true"
+        android:lineSpacingExtra="5sp"
+        android:onClick="gotoProfileActivity"
+        android:text="@string/Profile"
+        android:textAppearance="@style/login"
+        android:translationY="-2.62sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="343dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/mergin_left_right"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="@dimen/mergin_left_right"
+        android:layout_marginBottom="16dp"
+        android:autofillHints=""
+        android:background="@drawable/edit_textbox"
+        android:ems="10"
+        android:hint="@string/hint_enter_address"
+        android:inputType="text"
+        android:paddingStart="@dimen/padding_left_right"
+        android:paddingEnd="@dimen/padding_left_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/findDoctor" />
+
+   <!-- <EditText
+        android:id="@+id/editTextZipCode"
+        android:layout_width="343dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/mergin_left_right"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/mergin_left_right"
+        android:autofillHints=""
+        android:background="@drawable/edit_textbox"
+        android:ems="10"
+        android:hint="@string/hint_enter_zipCode"
+        android:inputType="text"
+        android:paddingStart="@dimen/padding_left_right"
+        android:paddingEnd="@dimen/padding_left_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddress" />-->
+
+    <Button
+        android:id="@+id/buttonFindDoctorNear"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="260dp"
+        android:background="@drawable/button_prim"
+        android:onClick="gotoListOfDoctors"
+        android:text="@string/find_doctor_near"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ios_bottom_"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/food_tracker"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewHome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_apple"
+            app:tint="#C4C4C4" />
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/imgHomeNavBar"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewStethoScope"
+            app:layout_constraintStart_toEndOf="@id/imageViewFood"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/home_24"
+            app:tint="#C4C4C4" />
+
+        <ImageView
+            android:id="@+id/imageViewStethoScope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/find_doctor"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageViewHome"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_stethoscope"
+            app:tint="@color/black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

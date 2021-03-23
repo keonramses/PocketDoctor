@@ -62,6 +62,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="food_tracker">Food Tracker</string>
-    <string name="find_doctor">Find Doctor</string>
     <string name="queryHint">Enter User Email</string>
+    <string name="find_doctor">Find a Doctor</string>
+    <string name="hint_enter_address">Enter your city</string>
+    <string name="hint_enter_zipCode">Enter your Zip code</string>
+    <string name="find_doctor_near">Find a Doctor Near You</string>
+    <string name="back">Back</string>
+    <string name="list_of_doc">List of doctors near you:</string>
+    <string name="layoutDescription">Doctor list</string>
+    <string name="book">Book</string>
+    <string name="online_help">Online Help</string>
+    <string name="book_appointment">Book an appointment</string>
+
 </resources>
