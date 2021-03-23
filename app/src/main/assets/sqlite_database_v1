@@ -70,9 +70,3 @@ INSERT INTO User (user_id, first_name, last_name, email, address, password, user
 INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("4a2bb32a-522c-71de-549g-a0cyg79k56g0", "Mana", "Kasey", "doctor3@test.com", "4980 Kingsway Burnaby BC ", "doctor3@test.com", 2);
 
 INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("2a2ll34z-526a-79dn-529l-a3cft39k56g7", "Lauren", "Fineman", "doctor4@test.com", "808 Nelson St Suite 303, Vancouver, BC V6Z 2H2", "doctor4@test.com", 2);
-
-
-
-
-
-
