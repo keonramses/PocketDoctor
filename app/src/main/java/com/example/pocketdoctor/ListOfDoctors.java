@@ -40,9 +40,8 @@ public class ListOfDoctors extends AppCompatActivity {
         stCity = getIntent().getExtras().getString("ValueCity");
         arrayList = new ArrayList<User>();
 
-        databaseHelper = new DatabaseHelper(this);
         this.deleteDatabase("pocket_docter"); // Delete and recreate database
-
+        databaseHelper = new DatabaseHelper(this);
 
         arrayList = GetDoctors();
         loadDataInListViewII(arrayList);

@@ -43,7 +43,6 @@ public class Booking extends AppCompatActivity {
          bookAppointment = findViewById(R.id.buttonBook);
          onlineHelp = findViewById(R.id.buttonOnlineHelp);
 
-
         userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
         userId = "7d1bb54a-533b-42db-897d-a6cff78c89a7";
 
