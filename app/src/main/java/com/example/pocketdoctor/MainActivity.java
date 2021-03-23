@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Registration failed", Toast.LENGTH_LONG).show();
             }
         } else{
-           Toast.makeText(MainActivity.this, "User already exists!. Please log in",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "User already exists!. Please log in",Toast.LENGTH_LONG).show();
         }
     }
 

@@ -62,3 +62,11 @@ CREATE TABLE DoctorSolution (
     FOREIGN KEY (doctor_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 INSERT INTO User (user_id, first_name, last_name, email, address, password, msp, user_type) VALUES ("7d1bb54a-533b-42db-897d-a6cff78c89a7", "Brian", "Vo", "test@test.com", "douglas", "test@test.com", "yes", 1);
+
+INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("6d1cc54a-522b-32db-897d-a6cff78c89b7", "Torin", "Glass", "doctor1@test.com", "510-4400 Dominion St. Burnaby V5G 4G3", "doctor1@test.com", 2);
+
+INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("5d1aa54a-522b-32dc-134e-a6cgg78c56b0", "Edmond", "Glass", "doctor2@test.com", "7487 Edmonds St, Burnaby, BC V3N 1B3", "doctor2@test.com", 2);
+
+INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("4a2bb32a-522c-71de-549g-a0cyg79k56g0", "Mana", "Kasey", "doctor3@test.com", "4980 Kingsway Burnaby BC ", "doctor3@test.com", 2);
+
+INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("2a2ll34z-526a-79dn-529l-a3cft39k56g7", "Lauren", "Fineman", "doctor4@test.com", "808 Nelson St Suite 303, Vancouver, BC V6Z 2H2", "doctor4@test.com", 2);

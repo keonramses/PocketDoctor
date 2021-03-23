@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pocketdoctor">
 
+
     <application
         android:name=".PocketDoctorApplication"
         android:allowBackup="true"
@@ -20,6 +21,9 @@
         <activity android:name=".PatientAccountActivity" />
         <activity android:name=".CreateAdminUserAccountActivity" />
         <activity android:name=".EditAdminUserAccountActivity" />
+        <activity android:name=".FindDoctor" />
+        <activity android:name=".ListOfDoctors" />
+        <activity android:name=".Booking" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".DoctorPocketSplash">
             <intent-filter>
@@ -33,6 +37,9 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
     </application>
+
+
 
 </manifest>
