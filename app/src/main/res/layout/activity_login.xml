@@ -7,7 +7,7 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/show2"
+        android:id="@+id/showHidePass2"
         android:layout_width="53dp"
         android:layout_height="24dp"
         android:layout_alignParentEnd="true"
@@ -15,8 +15,11 @@
         android:layout_marginStart="316dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="55dp"
+        android:clickable="true"
+        android:focusable="true"
         android:gravity="top"
         android:lineSpacingExtra="5sp"
+        android:onClick="showPassword"
         android:text="@string/show"
         android:textAppearance="@style/show"
         android:translationY="-2.62sp"
@@ -117,7 +120,7 @@
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/buttonFindDoctorNear"
         android:layout_width="343dp"
         android:layout_height="48dp"
         android:layout_marginStart="35dp"
@@ -145,7 +148,7 @@
         android:textAppearance="@style/already_hav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFindDoctorNear"
         android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

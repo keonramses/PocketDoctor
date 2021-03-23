@@ -134,7 +134,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
 
     <TextView
-        android:id="@+id/show"
+        android:id="@+id/showHidePass"
         android:layout_width="53dp"
         android:layout_height="24dp"
         android:layout_alignParentEnd="true"
@@ -142,8 +142,11 @@
         android:layout_marginStart="316dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="55dp"
+        android:clickable="true"
+        android:focusable="true"
         android:gravity="top"
         android:lineSpacingExtra="5sp"
+        android:onClick="showPassword"
         android:text="@string/show"
         android:textAppearance="@style/show"
         android:translationY="-2.62sp"
@@ -164,7 +167,7 @@
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/show" />
+        app:layout_constraintTop_toBottomOf="@+id/showHidePass" />
 
     <TextView
         android:id="@+id/already_hav"
@@ -183,5 +186,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSignUp"
         android:focusable="true" />
+
+    <Spinner
+        android:id="@+id/mspRegister"
+        android:layout_width="249dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="37dp"
+        android:entries="@array/txtMspSelection"
+        android:prompt="@string/promptSpinnerMsp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showHidePass" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="46dp"
+        android:text="@string/txtMSPLabel"
+        app:layout_constraintEnd_toStartOf="@+id/mspRegister"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

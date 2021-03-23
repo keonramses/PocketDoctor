@@ -11,13 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="112dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="114dp"
         android:text="@string/txtUserCreateAccount"
         android:textColor="#222222"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,8 +27,9 @@
         android:layout_width="343dp"
         android:layout_height="48dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="180dp"
         android:layout_marginEnd="34dp"
+        android:autofillHints=""
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="@string/hintPersonName"
@@ -37,8 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerMsp"
@@ -55,13 +56,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPersonPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/createPassword" />
 
     <TextView
         android:id="@+id/txtCreateUserNameLabel"
         android:layout_width="39dp"
         android:layout_height="17dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="196dp"
         android:text="@string/txtCreateUserNameLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.118"
@@ -73,8 +74,9 @@
         android:layout_width="343dp"
         android:layout_height="48dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="33dp"
+        android:autofillHints=""
         android:ems="10"
         android:gravity="center_horizontal"
         android:hint="@string/hintEmail"
@@ -83,25 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPersonName"
-        android:autofillHints="" />
-
-    <EditText
-        android:id="@+id/editTextPersonPhone"
-        android:layout_width="343dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="33dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="@string/hintPhone"
-        android:inputType="phone"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTexCreateUserEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/createUserLastName" />
 
     <TextView
         android:id="@+id/txtCreateUserEmailLabel"
@@ -114,12 +98,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtCreateUserPhoneLabel"
+        android:id="@+id/txtCreateUserPasdword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginTop="364dp"
-        android:text="@string/txtCreateUserPhoneLabel"
+        android:text="@string/password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,13 +119,14 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="92dp"
-        android:layout_height="92dp"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="160dp"
         android:contentDescription="@string/imgAvatarIcon"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUserAccountCreate"
         app:srcCompat="@drawable/avataricon" />
@@ -179,7 +164,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="179dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="174dp"
         android:text="@string/txtAddProfilePicture"
         app:layout_constraintEnd_toEndOf="parent"
@@ -217,5 +202,45 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerMsp" />
+
+    <EditText
+        android:id="@+id/createUserLastName"
+        android:layout_width="343dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="33dp"
+        android:ems="10"
+        android:gravity="center|center_horizontal"
+        android:hint="@string/hintLastName"
+        android:inputType="textPersonName"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPersonName" />
+
+    <TextView
+        android:id="@+id/txtLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/lastName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPersonName" />
+
+    <EditText
+        android:id="@+id/createPassword"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:gravity="center|center_horizontal"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTexCreateUserEmailAddress" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,10 +8,13 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
@@ -21,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     EditText edtUsername;
     EditText edtPassword;
+    TextView showHidePass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
         edtUsername = findViewById(R.id.editTextTextEmailAddress);
         edtPassword = findViewById(R.id.editTextTextPassword);
+        showHidePass = findViewById(R.id.showHidePass2);
 
         this.deleteDatabase("pocket_docter"); // Delete and recreate database
         databaseHelper = new DatabaseHelper(this);
@@ -52,6 +57,20 @@ public class LoginActivity extends AppCompatActivity {
 //        startActivity(new Intent(LoginActivity.this, HomeAdmin.class));
         startActivity(new Intent(LoginActivity.this, FoodTrackerActivity.class));
     }
+
+    //Show & Hide Password
+    public void showPassword(View view){
+        if(showHidePass.getText().equals("Show")){
+            edtPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            showHidePass.setText("Hide");
+        } else
+        {
+
+            edtPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            showHidePass.setText("Show");
+        }
+    }
+
 
     private void showSignInError() {
         edtUsername.setError(getString(R.string.sign_in_error));

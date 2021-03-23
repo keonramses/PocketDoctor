@@ -6,10 +6,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
@@ -20,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     EditText email;
     EditText password;
     DatabaseHelper databaseHelper;
+    Spinner msp;
+    TextView showHidePass;
+    int usertype = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +39,24 @@ public class MainActivity extends AppCompatActivity {
         lastName = findViewById(R.id.editTextTextLastName);
         email = findViewById(R.id.editTextEmailAddress);
         password = findViewById(R.id.editTextTextPassword);
-
-
+        msp = findViewById(R.id.mspRegister);
+        showHidePass = findViewById(R.id.showHidePass);
     }
 
 
     public void signup(View view){
         checkDataEntered();
+        String userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
         String fname = firstName.getText().toString();
         String lname = lastName.getText().toString();
         String sEmail = email.getText().toString();
         String passw = password.getText().toString();
+        String mspr = msp.getSelectedItem().toString();
+
 
         Cursor finduser = this.databaseHelper.findUser(sEmail,passw);
         if(finduser.getCount() > 0){
-            boolean insert = this.databaseHelper.insertData(fname, lname, sEmail, passw);
+            boolean insert = this.databaseHelper.insertData(userId, fname, lname, sEmail, passw, mspr, usertype);
             if(insert){
                 Toast.makeText(MainActivity.this, "Registered successfully", Toast.LENGTH_LONG).show();
                 // TO DO
@@ -55,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Registration failed", Toast.LENGTH_LONG).show();
             }
         } else{
-           Toast.makeText(MainActivity.this, "User already exists!. Please log in",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "User already exists!. Please log in",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -78,6 +88,18 @@ public class MainActivity extends AppCompatActivity {
         }
         if (isEmail(email) == false){
             email.setError("Enter valid email!");
+        }
+    }
+
+//Show & Hide Password
+    public void showPassword(View view){
+        if(showHidePass.getText().equals("Show")){
+            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            showHidePass.setText("Hide");
+        } else
+        {
+            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            showHidePass.setText("Show");
         }
     }
 
