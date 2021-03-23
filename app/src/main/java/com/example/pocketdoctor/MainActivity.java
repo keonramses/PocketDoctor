@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     EditText password;
     DatabaseHelper databaseHelper;
     Spinner msp;
+    TextView showHidePass;
     int usertype = 1;
 
     @Override
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.editTextEmailAddress);
         password = findViewById(R.id.editTextTextPassword);
         msp = findViewById(R.id.mspRegister);
+        showHidePass = findViewById(R.id.showHidePass);
     }
 
 
@@ -83,6 +88,18 @@ public class MainActivity extends AppCompatActivity {
         }
         if (isEmail(email) == false){
             email.setError("Enter valid email!");
+        }
+    }
+
+//Show & Hide Password
+    public void showPassword(View view){
+        if(showHidePass.getText().equals("Show")){
+            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            showHidePass.setText("Hide");
+        } else
+        {
+            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            showHidePass.setText("Show");
         }
     }
 
