@@ -44,7 +44,6 @@ public class Booking extends AppCompatActivity {
          onlineHelp = findViewById(R.id.buttonOnlineHelp);
 
         userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
-        userId = "7d1bb54a-533b-42db-897d-a6cff78c89a7";
 
         bookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +63,11 @@ public class Booking extends AppCompatActivity {
                        intent.putExtra("UserId",userId);
                        startActivity(intent);*/
                        date = simpleDateFormat.format(calendar.getTime());
+                       Intent intent = new Intent(Booking.this, BookingPatientMessage.class);
+                       intent.putExtra("date",simpleDateFormat.format(calendar.getTime()));
+                       intent.putExtra("doctorInfo", docOutput.getText().toString());
+                       intent.putExtra("doctorId", docId);
+                       startActivity(intent);
                    }
                };
              new DatePickerDialog(Booking.this, dateSetListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();

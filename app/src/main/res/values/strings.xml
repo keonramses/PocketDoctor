@@ -73,5 +73,7 @@
     <string name="book">Book</string>
     <string name="online_help">Online Help</string>
     <string name="book_appointment">Book an appointment</string>
+    <string name="your_message_to_doctor">Your message to doctor</string>
+    <string name="send_message">Send message</string>
 
 </resources>

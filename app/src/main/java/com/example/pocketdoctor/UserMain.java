@@ -16,6 +16,8 @@ public class UserMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main);
+        foodTracker = findViewById(R.id.buttonCaloriesTracker);
+        findDoctor = findViewById(R.id.buttonFindADoctor);
 
         foodTracker.setOnClickListener(new View.OnClickListener() {
             @Override
