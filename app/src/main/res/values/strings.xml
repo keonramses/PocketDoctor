@@ -75,5 +75,6 @@
     <string name="book_appointment">Book an appointment</string>
     <string name="your_message_to_doctor">Your message to doctor</string>
     <string name="send_message">Send message</string>
+    <string name="messages_from_doctors">Messages from doctors</string>
 
 </resources>

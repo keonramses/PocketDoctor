@@ -11,6 +11,7 @@ public class UserMain extends AppCompatActivity {
 
     Button foodTracker;
     Button findDoctor;
+    Button viewMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class UserMain extends AppCompatActivity {
         setContentView(R.layout.activity_user_main);
         foodTracker = findViewById(R.id.buttonCaloriesTracker);
         findDoctor = findViewById(R.id.buttonFindADoctor);
+        viewMessage = findViewById(R.id.buttonMessageFromDoctors);
 
         foodTracker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +33,10 @@ public class UserMain extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(UserMain.this, FindDoctor.class));
             }
+        });
+
+        viewMessage.setOnClickListener(v -> {
+            startActivity(new Intent(UserMain.this, DoctorMessageActivity.class));
         });
     }
 
