@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +23,7 @@ import java.util.UUID;
 
 public class CreateDoctorAndCashierActivity extends AppCompatActivity {
 
+    TextView show;
     TextView title;
     ImageView imageHome;
     Button buttonSaveUser;
@@ -54,20 +57,17 @@ public class CreateDoctorAndCashierActivity extends AppCompatActivity {
         email = findViewById(R.id.createAccDocEmail);
         password = findViewById(R.id.createAccDocPasswo);
         address = findViewById(R.id.createAccDocAddress);
+        show = findViewById(R.id.idShow);
 
         databaseHelper = new DatabaseHelper(this);
 
         buttonSaveUser.setEnabled(false);
 
         Intent i = getIntent();
-        if(i!=null)
-        {
-            if(((PocketDoctorApplication)getApplication()).getCurrentUserType() == 2)
-            {
+        if (i != null) {
+            if (((PocketDoctorApplication) getApplication()).getCurrentUserType() == 2) {
                 title.setText("Create Doctor Account");
-            }
-            else if(((PocketDoctorApplication)getApplication()).getCurrentUserType() == 3)
-            {
+            } else if (((PocketDoctorApplication) getApplication()).getCurrentUserType() == 3) {
                 title.setText("Create Cashier Account");
             }
         }
@@ -204,16 +204,15 @@ public class CreateDoctorAndCashierActivity extends AppCompatActivity {
                 passwordToSend = password.getText().toString();
                 addressToSend = address.getText().toString();
                 userId = UUID.randomUUID();
-                userType = ((PocketDoctorApplication)getApplication()).getCurrentUserType();
+                userType = ((PocketDoctorApplication) getApplication()).getCurrentUserType();
                 String userIdToSend = userId.toString();
 
-                boolean isAdded = databaseHelper.insertDoctorAndCashier(userIdToSend, nameToSend, lastNameToSend, emailToSend, passwordToSend, addressToSend, userType );
+                boolean isAdded = databaseHelper.insertDoctorAndCashier(userIdToSend, nameToSend, lastNameToSend, emailToSend, passwordToSend, addressToSend, userType);
                 if (isAdded) {
                     Toast.makeText(CreateDoctorAndCashierActivity.this, "Record Added", Toast.LENGTH_LONG).show();
                 } else
                     Toast.makeText(CreateDoctorAndCashierActivity.this, "Record not Added", Toast.LENGTH_LONG).show();
-                if(!email.getText().toString().matches(emailPattern))
-                {
+                if (!email.getText().toString().matches(emailPattern)) {
                     email.setText("");
                 }
             }
@@ -234,7 +233,16 @@ public class CreateDoctorAndCashierActivity extends AppCompatActivity {
                 startActivity(new Intent(CreateDoctorAndCashierActivity.this, HomeAdmin.class));
             }
         });
+    }
 
-
+    //Show & Hide Password
+    public void showPassword(View view) {
+        if (show.getText().equals("Show")) {
+            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            show.setText("Hide");
+        } else {
+            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            show.setText("Show");
+        }
     }
 }

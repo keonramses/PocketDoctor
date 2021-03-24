@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserMain">
+
+    <RelativeLayout
+        android:id="@+id/ios_bottom_"
+        android:layout_width="411dp"
+        android:layout_height="84dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="193dp"
+        android:layout_marginEnd="194dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/imgHomeNavBar"
+            app:srcCompat="@drawable/home_24"
+            app:tint="@color/black" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/buttonCaloriesTracker"
+        android:layout_width="344dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="#7378AA"
+        android:drawableStart="@drawable/apple"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center|center_horizontal"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:text="@string/food_tracker"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonFindADoctor"
+        android:layout_width="344dp"
+        android:layout_height="220dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/brown"
+        android:drawableStart="@drawable/doctorstool"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/find_doctor"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCaloriesTracker" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="179dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/HomeTitle"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/Profile"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/title"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

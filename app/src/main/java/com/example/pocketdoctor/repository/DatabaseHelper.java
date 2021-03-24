@@ -78,7 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor findUser(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String sql = "SELECT user_id FROM User WHERE email='" + username + "' AND password='" + password + "';";
+        String sql = "SELECT user_id, user_type FROM User WHERE email='" + username + "' AND password='" + password + "';";
         Cursor result = db.rawQuery(sql, null);
         return result;
     }
