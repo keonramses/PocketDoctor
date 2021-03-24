@@ -37,10 +37,13 @@ public class ListOfDoctors extends AppCompatActivity {
         setContentView(R.layout.activity_list_of_doctors);
 
         listView = findViewById(R.id.listView);
-        stCity = getIntent().getExtras().getString("ValueCity");
+        stCity = "";
+        if (getIntent().getExtras() != null) {
+            stCity = getIntent().getExtras().getString("ValueCity");
+        }
         arrayList = new ArrayList<User>();
 
-        this.deleteDatabase("pocket_docter"); // Delete and recreate database
+//        this.deleteDatabase("pocket_docter"); // Delete and recreate database
         databaseHelper = new DatabaseHelper(this);
 
         arrayList = GetDoctors();
@@ -55,9 +58,12 @@ public class ListOfDoctors extends AppCompatActivity {
             String firstName = cursor.getString(1);
             String lastName = cursor.getString(2);
             String address = cursor.getString(3);
-            if(address.toLowerCase().indexOf(stCity.toLowerCase()) != -1){
-                User user = new User(doctorId, firstName, lastName, address);
-
+            User user = new User(doctorId, firstName, lastName, address);
+            // if city has been entered, show the match result
+            if(!stCity.isEmpty() && address.toLowerCase().indexOf(stCity.toLowerCase()) != -1){
+                arrayList.add(user);
+            }else{
+                // show all
                 arrayList.add(user);
             }
         }

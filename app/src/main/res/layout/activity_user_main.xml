@@ -6,35 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".UserMain">
 
-    <RelativeLayout
-        android:id="@+id/ios_bottom_"
-        android:layout_width="411dp"
-        android:layout_height="84dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="193dp"
-        android:layout_marginEnd="194dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-        <ImageView
-            android:id="@+id/imageViewHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:contentDescription="@string/imgHomeNavBar"
-            app:srcCompat="@drawable/home_24"
-            app:tint="@color/black" />
-    </RelativeLayout>
-
     <Button
         android:id="@+id/buttonCaloriesTracker"
-        android:layout_width="344dp"
-        android:layout_height="220dp"
+        android:layout_width="328dp"
+        android:layout_height="136dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="76dp"
         android:background="@drawable/round_btn"
@@ -52,8 +27,8 @@
 
     <Button
         android:id="@+id/buttonFindADoctor"
-        android:layout_width="344dp"
-        android:layout_height="220dp"
+        android:layout_width="328dp"
+        android:layout_height="136dp"
         android:layout_marginStart="33dp"
         android:layout_marginTop="18dp"
         android:background="@drawable/round_btn"
@@ -67,6 +42,27 @@
         android:paddingRight="55dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonCaloriesTracker" />
+
+    <Button
+        android:id="@+id/buttonMessageFromDoctors"
+        android:layout_width="328dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="53dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/blue"
+        android:drawableStart="@drawable/money_36"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:text="@string/messages_from_doctors"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFindADoctor" />
 
     <TextView
         android:id="@+id/title"
@@ -83,6 +79,67 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ios_bottom_"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/food_tracker"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewHome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_apple"
+            app:tint="#C4C4C4" />
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/imgHomeNavBar"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewStethoScope"
+            app:layout_constraintStart_toEndOf="@id/imageViewFood"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/home_24"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/imageViewStethoScope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/find_doctor"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageViewHome"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_stethoscope"
+            app:tint="#C4C4C4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/profile"
         android:layout_width="wrap_content"
@@ -95,4 +152,5 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

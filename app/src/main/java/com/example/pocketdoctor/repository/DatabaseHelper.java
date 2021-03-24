@@ -3,6 +3,7 @@ package com.example.pocketdoctor.repository;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -249,5 +250,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String sql = "SELECT first_name, last_name, address FROM User WHERE user_id = ?";
         Cursor cursor = db.rawQuery(sql, new String[] {docId});
         return cursor;
+    }
+
+    public boolean insertDoctorAppointment(String userId, String doctorId, String date, String message) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("patient_id", userId);
+        values.put("doctor_id", doctorId);
+        values.put("content", message);
+        values.put("created_date", date);
+        values.put("is_view", 0);
+        try {
+            db.insertOrThrow("PatientMessage", null, values);
+        } catch (SQLiteConstraintException ex) {
+            return false;
+        } catch (Exception ex) {
+            return false;
+        }
+        return true;
     }
 }
