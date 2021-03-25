@@ -21,7 +21,7 @@ public class DoctorMessageActivity extends AppCompatActivity {
     ImageView calorieIcon;
     ImageView homeIcon;
     ImageView stethoscopeIcon;
-
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +34,7 @@ public class DoctorMessageActivity extends AppCompatActivity {
         int[] toResourceId = new int[] {R.id.doctorImage, R.id.messageStatus, R.id.address, R.id.messageDate};
 
         List<HashMap<String, String>> doctorList = new ArrayList<HashMap<String, String>>();
-        String userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
-//        userId = "7d1bb54a-533b-42db-897d-a6cff78c89a7";
+        userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
 
         Cursor cursor = databaseHelper.getDoctorMessageForUserId(userId);
         cursor.moveToFirst();
@@ -45,7 +44,8 @@ public class DoctorMessageActivity extends AppCompatActivity {
             doctor.put("address", cursor.getString(0) + "\n" + cursor.getString(1)); //address
             doctor.put("messageStatus", cursor.getString(2)); //message content
 //            doctor.put("isView", cursor.getString(3)); // is_view
-            doctor.put("messageDate", cursor.getString(4)); // is_view
+            doctor.put("messageDate", cursor.getString(4));
+            doctor.put("doctor_id", cursor.getString(5));
             doctorList.add(doctor);
         } while (cursor.moveToNext());
 
@@ -53,6 +53,15 @@ public class DoctorMessageActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.lstDoctorMessages);
         listView.setAdapter(simpleAdapter);
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            String doctorId = doctorList.get(position).get("doctor_id");
+            Intent intent = new Intent(DoctorMessageActivity.this, MessageContentActivity.class);
+            intent.putExtra("sender", userId);
+            intent.putExtra("replier", doctorId);
+            intent.putExtra("user_view", true);
+            startActivity(intent);
+        });
 
         calorieIcon = findViewById(R.id.imageViewFood);
         homeIcon = findViewById(R.id.imageViewHome);

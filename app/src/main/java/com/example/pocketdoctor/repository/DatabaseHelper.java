@@ -252,13 +252,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public boolean insertDoctorAppointment(String userId, String doctorId, String date, String message) {
+    public boolean insertDoctorAppointment(String userId, String doctorId, String date, String message, String createdDate) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("patient_id", userId);
         values.put("doctor_id", doctorId);
         values.put("content", message);
-        values.put("created_date", date);
+        values.put("appointment-date", date);
+        values.put("created_date", createdDate);
         values.put("is_view", 0);
         try {
             db.insertOrThrow("PatientMessage", null, values);
@@ -273,7 +274,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getDoctorMessageForUserId(String currentUserId) {
         SQLiteDatabase db = this.getReadableDatabase();
         String str = "SELECT u.first_name || u.last_name AS doctor_name, " +
-                "u.address, m.content, m.is_view, m.created_date" +
+                "u.address, m.content, m.is_view, m.created_date, m.doctor_id" +
                 " FROM DoctorMessage AS m INNER JOIN User AS u ON m.doctor_id = u.user_id " +
                 " WHERE m.patient_id = ? " +
                 " ORDER BY m.created_date DESC";
@@ -286,5 +287,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query = "SELECT first_name, last_name, email, msp  FROM User WHERE user_Id = ?";
         Cursor data = sqLiteDatabase.rawQuery(query, new String[] {userId});
         return data;
+    }
+
+    public Cursor getMessageThread(String userId, String doctorId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String msgDoctorToUser = "SELECT u.user_id, u.first_name || u.last_name AS name, " +
+                "u.address, m.content, m.is_view, m.created_date, m.doctor_id" +
+                " FROM DoctorMessage AS m INNER JOIN User AS u ON m.doctor_id = u.user_id " +
+                " WHERE m.patient_id = ? AND m.doctor_id = ?";
+        String msgUserToDoctor = "SELECT u.user_id, u.first_name || u.last_name AS name, " +
+                "u.address, m.content, m.is_view, m.created_date, m.doctor_id" +
+                " FROM PatientMessage AS m INNER JOIN User AS u ON m.patient_id = u.user_id " +
+                " WHERE m.doctor_id = ? ";
+        String unionStr = msgDoctorToUser + " UNION " + msgUserToDoctor + " ORDER BY created_date ASC";
+        Cursor cursor = db.rawQuery(unionStr, new String[]{userId, doctorId, doctorId});
+        return cursor;
     }
 }
