@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
@@ -18,7 +19,7 @@ public class UserProfile extends AppCompatActivity {
     TextView name, lastName, email, msp, status;
     DatabaseHelper databaseHelper;
     String userId, sName, sLastName, sEmail, sMsp, sStatus;
-
+    ImageView calorieIcon, homeIcon, stethoscopeIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,32 @@ public class UserProfile extends AppCompatActivity {
         // TODO -->
         status = findViewById(R.id.txtViewStatus);
         getUserProfile();
+
+        calorieIcon = findViewById(R.id.imageViewFood);
+        homeIcon = findViewById(R.id.imageViewHome);
+        stethoscopeIcon = findViewById(R.id.imageViewStethoScope);
+
+        //CONTEXTUAL MENU ICON FUNCTION
+        calorieIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserProfile.this, FoodTrackerActivity.class));
+            }
+        });
+        //CONTEXTUAL MENU ICON FUNCTION
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserProfile.this, UserMain.class));
+            }
+        });
+        //CONTEXTUAL MENU ICON FUNCTION
+        stethoscopeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserProfile.this, FindDoctor.class));
+            }
+        });
     }
 
     public void getUserProfile(){
