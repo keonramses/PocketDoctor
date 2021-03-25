@@ -4,84 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Booking">
-    <TextView
-        android:id="@+id/findDoctor"
-        android:layout_width="150dp"
-        android:layout_height="38dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="140dp"
-        android:gravity="center_horizontal|top"
-        android:lineSpacingExtra="1sp"
-        android:text="@string/find_doctor"
-        android:textAppearance="@style/sign_up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.017"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/list_of_doc"
-        android:layout_width="294dp"
-        android:layout_height="41dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="58dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="59dp"
-        android:gravity="center_horizontal|top"
-        android:lineSpacingExtra="0sp"
-        android:text="@string/book_appointment"
-        android:textAppearance="@style/list_of_doc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/findDoctor" />
-
-    <TextView
-        android:id="@+id/txtSignUp"
-        android:layout_width="62dp"
-        android:layout_height="24dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="40dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="top"
-        android:lineSpacingExtra="5sp"
-        android:onClick="gotoFindDoctor"
-        android:text="@string/back"
-        android:textAppearance="@style/login"
-        android:translationY="-2.62sp"
-        app:layout_constraintEnd_toStartOf="@+id/findDoctor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    tools:context=".UserMain">
 
     <Button
-        android:id="@+id/buttonBook"
-        android:layout_width="164dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="109dp"
-        android:layout_marginEnd="124dp"
-        android:background="@drawable/btn_circular"
-        android:backgroundTint="@color/brown"
-        android:drawableStart="@drawable/vector"
+        android:id="@+id/buttonCaloriesTracker"
+        android:layout_width="328dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="#7378AA"
+        android:drawableStart="@drawable/apple"
         android:fontFamily="@font/roboto_regular"
-        android:paddingStart="45dp"
-        android:paddingEnd="35dp"
-        android:text="@string/book"
+        android:gravity="center|center_horizontal"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:text="@string/food_tracker"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="16sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOutputDoctor" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonFindADoctor"
+        android:layout_width="328dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/brown"
+        android:drawableStart="@drawable/doctorstool"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:text="@string/find_doctor"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCaloriesTracker" />
+
+    <Button
+        android:id="@+id/buttonMessageFromDoctors"
+        android:layout_width="328dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/round_btn"
+        android:backgroundTint="@color/blue"
+        android:drawableStart="@drawable/message_24"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:text="@string/messages_from_doctors"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFindADoctor" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="177dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="179dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/HomeTitle"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ios_bottom_"
@@ -125,7 +127,7 @@
             app:layout_constraintStart_toEndOf="@id/imageViewFood"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/home_24"
-            app:tint="#C4C4C4" />
+            app:tint="@color/black" />
 
         <ImageView
             android:id="@+id/imageViewStethoScope"
@@ -140,18 +142,22 @@
             app:layout_constraintStart_toEndOf="@id/imageViewHome"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/icon_stethoscope"
-            app:tint="@color/black" />
+            app:tint="#C4C4C4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textViewOutputDoctor"
-        android:layout_width="324dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_of_doc" />
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="41dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/Profile"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        android:onClick="goToProfile"
+        app:layout_constraintStart_toEndOf="@+id/title"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

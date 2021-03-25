@@ -3,6 +3,7 @@ package com.example.pocketdoctor.repository;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -78,7 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor findUser(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String sql = "SELECT user_id FROM User WHERE email='" + username + "' AND password='" + password + "';";
+        String sql = "SELECT user_id, user_type FROM User WHERE email='" + username + "' AND password='" + password + "';";
         Cursor result = db.rawQuery(sql, null);
         return result;
     }
@@ -87,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                                           int user_type)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = 0;
+        long result;
         if (!email.matches(emailPattern)) {
             return false;
         }
@@ -109,7 +110,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean insertData(String userId, String userFirstName, String userLastName, String email, String password, String msp,
                               int user_type) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = 0;
+        long result;
         if (!email.matches(emailPattern)) {
             return false;
         }
@@ -131,7 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean addUserDailyIntake(String userId, int calories, String date) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = 0;
+        long result;
         int todayCalories = getTotalUserDailyIntake(userId, date);
         if (todayCalories == -1) {
             // insert new
@@ -196,7 +197,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean upDate(String id, String name, String lastName, String email, String msp) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        long result = 0;
+        long result;
         if (!msp.equalsIgnoreCase("yes") && !msp.equalsIgnoreCase("no")) {
             return false;
         }
@@ -217,7 +218,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public boolean upDateDoctorAndCashier(String id, String name, String lastName, String email, String address) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        long result = 0;
+        long result;
         if (!email.matches(emailPattern)) {
             return false;
         }
@@ -249,5 +250,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String sql = "SELECT first_name, last_name, address FROM User WHERE user_id = ?";
         Cursor cursor = db.rawQuery(sql, new String[] {docId});
         return cursor;
+    }
+
+    public boolean insertDoctorAppointment(String userId, String doctorId, String date, String message) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("patient_id", userId);
+        values.put("doctor_id", doctorId);
+        values.put("content", message);
+        values.put("created_date", date);
+        values.put("is_view", 0);
+        try {
+            db.insertOrThrow("PatientMessage", null, values);
+        } catch (SQLiteConstraintException ex) {
+            return false;
+        } catch (Exception ex) {
+            return false;
+        }
+        return true;
+    }
+
+    public Cursor getUser(String userId) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = "SELECT first_name, last_name, email, msp  FROM User WHERE user_Id = ?";
+        Cursor data = sqLiteDatabase.rawQuery(query, new String[] {userId});
+        return data;
     }
 }

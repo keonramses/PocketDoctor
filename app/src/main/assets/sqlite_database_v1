@@ -42,31 +42,32 @@ CREATE TABLE Payment (
     PRIMARY KEY (user_id, service_id, from_date, to_date) ,
     FOREIGN KEY (user_id, service_id) REFERENCES UserService(user_id, service_id) ON DELETE CASCADE
 );
-CREATE TABLE PatientComplaint (
+CREATE TABLE PatientMessage (
     doctor_id BINARY(16),
     patient_id BINARY(16),
     content TEXT,
-    rating INT,
+    is_view INT DEFAULT 0,
     created_date DATETIME,
-    PRIMARY KEY (doctor_id, patient_id),
+    PRIMARY KEY (doctor_id, patient_id, created_date),
     FOREIGN KEY (doctor_id) REFERENCES User(user_id) ON DELETE CASCADE,
     FOREIGN KEY (patient_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
-CREATE TABLE DoctorSolution (
+CREATE TABLE DoctorMessage (
     patient_id BINARY(16),
     doctor_id BINARY(16),
     content TEXT,
     created_date DATETIME,
-    PRIMARY KEY (patient_id, doctor_id),
+    is_view INT DEFAULT 0,
+    PRIMARY KEY (patient_id, doctor_id, created_date),
     FOREIGN KEY (patient_id) REFERENCES User(user_id) ON DELETE CASCADE,
     FOREIGN KEY (doctor_id) REFERENCES User(user_id) ON DELETE CASCADE
 );
 INSERT INTO User (user_id, first_name, last_name, email, address, password, msp, user_type) VALUES ("7d1bb54a-533b-42db-897d-a6cff78c89a7", "Brian", "Vo", "test@test.com", "douglas", "test@test.com", "yes", 1);
-
-INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("6d1cc54a-522b-32db-897d-a6cff78c89b7", "Torin", "Glass", "doctor1@test.com", "510-4400 Dominion St. Burnaby V5G 4G3", "doctor1@test.com", 2);
-
-INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("5d1aa54a-522b-32dc-134e-a6cgg78c56b0", "Edmond", "Glass", "doctor2@test.com", "7487 Edmonds St, Burnaby, BC V3N 1B3", "doctor2@test.com", 2);
-
-INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("4a2bb32a-522c-71de-549g-a0cyg79k56g0", "Mana", "Kasey", "doctor3@test.com", "4980 Kingsway Burnaby BC ", "doctor3@test.com", 2);
-
-INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("2a2ll34z-526a-79dn-529l-a3cft39k56g7", "Lauren", "Fineman", "doctor4@test.com", "808 Nelson St Suite 303, Vancouver, BC V6Z 2H2", "doctor4@test.com", 2);
+INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("7de6f61c-dcbb-4f1b-8c95-6f6929088f1d", "Daniel", "Bedoya", "admin@admin.com", "Burnaby", "admin@admin.com", 4);
+INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("1de6f61c-dcbb-4f1b-8c95-6f6929088f1a", "Doctor", "Who", "doctor@doctor.com", "Burnaby", "doctor", 2);
+INSERT INTO User (user_id, first_name, last_name, email, address, password, user_type) VALUES ("2de6f61c-dcbb-4f1b-8c95-6f6929088f1b", "Doctor 1", "Who 1", "doctor1@doctor.com", "Burnaby", "doctor", 2);
+INSERT INTO DoctorMessage (doctor_id,patient_id,content,rating,created_date) VALUES (2de6f61c-dcbb-4f1b-8c95-6f6929088f1b,7d1bb54a-533b-42db-897d-a6cff78c89a7,'Thank you, but I am busy',0,'21-03-26');
+INSERT INTO PatientMessage (doctor_id,patient_id,content,rating,created_date) VALUES (2de6f61c-dcbb-4f1b-8c95-6f6929088f1b,7d1bb54a-533b-42db-897d-a6cff78c89a7,'kjlkj;kljlk',0,'21-03-26');
+INSERT INTO PatientMessage (doctor_id,patient_id,content,rating,created_date) VALUES (1de6f61c-dcbb-4f1b-8c95-6f6929088f1a,7d1bb54a-533b-42db-897d-a6cff78c89a7,'Hi doctor please leave your message',0,'21-03-26');
+INSERT INTO PatientMessage (doctor_id,patient_id,content,rating,created_date) VALUES (1de6f61c-dcbb-4f1b-8c95-6f6929088f1a,7d1bb54a-533b-42db-897d-a6cff78c89a7,'hello doctor',0,'21-03-24');
+INSERT INTO PatientMessage (doctor_id,patient_id,content,rating,created_date) VALUES (1de6f61c-dcbb-4f1b-8c95-6f6929088f1a,7d1bb54a-533b-42db-897d-a6cff78c89a7,'Hello doctor',0,'21-03-28');

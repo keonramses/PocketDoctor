@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pocketdoctor">
 
-
     <application
         android:name=".PocketDoctorApplication"
         android:allowBackup="true"
@@ -11,7 +10,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditDoctorAndCashierActivity"></activity>
+        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".DoctorMessageActivity" />
+        <activity android:name=".BookingPatientMessage" />
+        <activity android:name=".CashierMain" />
+        <activity android:name=".DoctorMain" />
+        <activity android:name=".UserMain" />
+        <activity android:name=".EditDoctorAndCashierActivity" />
         <activity android:name=".CreateDoctorAndCashierActivity" />
         <activity android:name=".SearchUserAdminActivity" />
         <activity
@@ -37,9 +42,6 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-
     </application>
-
-
 
 </manifest>

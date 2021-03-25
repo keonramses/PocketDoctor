@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
@@ -30,6 +31,8 @@ public class FoodTrackerActivity extends AppCompatActivity {
     String today;
     int todayCalories;
     SearchView searchView;
+    ImageView homeIcon;
+    ImageView stethoscopeIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +40,11 @@ public class FoodTrackerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_tracker);
         searchView = (SearchView)findViewById(R.id.edtSearchFood);
         searchView.onActionViewExpanded();
+        homeIcon = findViewById(R.id.imageViewHome);
+        stethoscopeIcon = findViewById(R.id.imageViewStethoScope);
 
         userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
-        userId = "7d1bb54a-533b-42db-897d-a6cff78c89a7";
+        //userId = "7d1bb54a-533b-42db-897d-a6cff78c89a7";
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
         today = simpleDateFormat.format(new Date());
@@ -106,9 +111,25 @@ public class FoodTrackerActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        //CONTEXTUAL MENU ICON FUNCTION
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FoodTrackerActivity.this, UserMain.class));
+            }
+        });
+
+        //CONTEXTUAL MENU ICON FUNCTION
+        stethoscopeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FoodTrackerActivity.this, FindDoctor.class));
+            }
+        });
     }
 
     public void gotoProfileActivity (View view) {
-        startActivity(new Intent(FoodTrackerActivity.this, HomeAdmin.class));
+        startActivity(new Intent(FoodTrackerActivity.this, UserProfile.class));
     }
 }
