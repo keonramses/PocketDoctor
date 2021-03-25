@@ -62,59 +62,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="150dp"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        app:layout_constraintBottom_toTopOf="@+id/ios_bottom_"
+
+    <Button
+        android:id="@+id/buttonBook"
+        android:layout_width="164dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginEnd="124dp"
+        android:background="@drawable/btn_circular"
+        android:backgroundTint="@color/brown"
+        android:drawableStart="@drawable/vector"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingStart="45dp"
+        android:paddingEnd="35dp"
+        android:text="@string/book"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOutputDoctor"
-        app:layout_constraintVertical_bias="1.0">
-
-
-        <Button
-            android:id="@+id/buttonBook"
-            android:layout_width="164dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="9dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/btn_circular"
-            android:backgroundTint="@color/brown"
-            android:drawableStart="@drawable/vector"
-            android:fontFamily="@font/roboto_regular"
-            android:paddingLeft="45dp"
-            android:paddingRight="35dp"
-            android:text="@string/book"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/buttonOnlineHelp"
-            android:layout_width="164dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/outline_button"
-            android:drawableStart="@drawable/onlinehelp"
-            android:fontFamily="@font/roboto_regular"
-            android:paddingLeft="18dp"
-            android:paddingRight="18dp"
-            android:text="@string/online_help"
-            android:textColor="#66000000"
-            android:textSize="16sp" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textViewOutputDoctor" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ios_bottom_"

@@ -156,6 +156,7 @@
         android:text="@string/Profile"
         android:textColor="@color/gray"
         android:textSize="16sp"
+        android:onClick="goToProfile"
         app:layout_constraintStart_toEndOf="@+id/title"
         app:layout_constraintTop_toTopOf="parent" />
 
