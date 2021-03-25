@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DoctorMessageActivity">
+
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="177dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="179dp"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/HomeTitle"
@@ -109,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="41dp"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/Profile"
         android:textColor="@color/gray"
