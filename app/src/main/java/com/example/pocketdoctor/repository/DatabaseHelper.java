@@ -269,4 +269,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return true;
     }
+
+    public Cursor getDoctorMessageForUserId(String currentUserId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String str = "SELECT u.first_name || u.last_name AS doctor_name, " +
+                "u.address, m.content, m.is_view, m.created_date" +
+                " FROM DoctorMessage AS m INNER JOIN User AS u ON m.doctor_id = u.user_id " +
+                " WHERE m.patient_id = ? " +
+                " ORDER BY m.created_date DESC";
+        Cursor cursor = db.rawQuery(str, new String[] {currentUserId});
+        return cursor;
+    }
 }

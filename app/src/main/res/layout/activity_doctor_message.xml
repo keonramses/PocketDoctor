@@ -41,7 +41,8 @@
         app:layout_constraintBottom_toTopOf="@+id/ios_bottom_"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/listDescription" />
+        app:layout_constraintTop_toBottomOf="@id/listDescription"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ios_bottom_"

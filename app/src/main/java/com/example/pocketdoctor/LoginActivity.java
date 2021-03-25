@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signIn(View view) {
+        gotoMainActivity(1);// for testing
         edtUsername.setError(null);
         edtPassword.setError(null);
         Cursor currentUser = this.databaseHelper.findUser(edtUsername.getText().toString(), edtPassword.getText().toString());
