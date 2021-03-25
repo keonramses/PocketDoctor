@@ -62,6 +62,10 @@ public class UserMain extends AppCompatActivity {
 
     }
 
+    public void goToProfile(View view){
+        startActivity(new Intent(UserMain.this, UserProfile.class));
+    }
+
 
 
 
