@@ -2,7 +2,6 @@ package com.example.pocketdoctor;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-<<<<<<< HEAD
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -13,12 +12,10 @@ import com.example.pocketdoctor.repository.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-=======
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
->>>>>>> d8117f00aafcf3dfa0faf2d9f2be3a07820c49c1
 
 public class DoctorMessageActivity extends AppCompatActivity {
     ImageView calorieIcon;
@@ -31,7 +28,6 @@ public class DoctorMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_message);
 
-<<<<<<< HEAD
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
         String[] fromKeyProperty = new String[] {"image", "messageStatus", "address", "messageDate"};
@@ -39,7 +35,7 @@ public class DoctorMessageActivity extends AppCompatActivity {
 
         List<HashMap<String, String>> doctorList = new ArrayList<HashMap<String, String>>();
         String userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
-        userId = "7d1bb54a-533b-42db-897d-a6cff78c89a7";
+//        userId = "7d1bb54a-533b-42db-897d-a6cff78c89a7";
 
         Cursor cursor = databaseHelper.getDoctorMessageForUserId(userId);
         cursor.moveToFirst();
@@ -58,7 +54,6 @@ public class DoctorMessageActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.lstDoctorMessages);
         listView.setAdapter(simpleAdapter);
 
-=======
         calorieIcon = findViewById(R.id.imageViewFood);
         homeIcon = findViewById(R.id.imageViewHome);
         stethoscopeIcon = findViewById(R.id.imageViewStethoScope);
@@ -84,6 +79,5 @@ public class DoctorMessageActivity extends AppCompatActivity {
                 startActivity(new Intent(DoctorMessageActivity.this, FindDoctor.class));
             }
         });
->>>>>>> d8117f00aafcf3dfa0faf2d9f2be3a07820c49c1
     }
 }
