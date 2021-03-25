@@ -258,7 +258,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("patient_id", userId);
         values.put("doctor_id", doctorId);
         values.put("content", message);
-        values.put("appointment-date", date);
+        values.put("appointment_date", date);
         values.put("created_date", createdDate);
         values.put("is_view", 0);
         try {
