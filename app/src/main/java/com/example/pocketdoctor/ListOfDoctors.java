@@ -97,12 +97,6 @@ public class ListOfDoctors extends AppCompatActivity {
         startActivity(i);
        // startActivity(new Intent(ListOfDoctors.this, Booking.class));
     }
-    public void goToOnlineHelpHandler(View v)
-    {
-        //  LinearLayout vwParentRow = (LinearLayout)v.getParent();
-        //   Button btnChild = (Button)vwParentRow.getChildAt(0);
-        startActivity(new Intent(ListOfDoctors.this, FindDoctor.class));
-    }
 
     public void gotoFindDoctor(View view) {
         startActivity(new Intent(ListOfDoctors.this, FindDoctor.class));

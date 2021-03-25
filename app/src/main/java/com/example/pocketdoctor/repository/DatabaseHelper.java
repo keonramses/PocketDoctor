@@ -88,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                                           int user_type)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = 0;
+        long result;
         if (!email.matches(emailPattern)) {
             return false;
         }
@@ -110,7 +110,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean insertData(String userId, String userFirstName, String userLastName, String email, String password, String msp,
                               int user_type) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = 0;
+        long result;
         if (!email.matches(emailPattern)) {
             return false;
         }
@@ -132,7 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean addUserDailyIntake(String userId, int calories, String date) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long result = 0;
+        long result;
         int todayCalories = getTotalUserDailyIntake(userId, date);
         if (todayCalories == -1) {
             // insert new
@@ -197,7 +197,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean upDate(String id, String name, String lastName, String email, String msp) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        long result = 0;
+        long result;
         if (!msp.equalsIgnoreCase("yes") && !msp.equalsIgnoreCase("no")) {
             return false;
         }
@@ -218,7 +218,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public boolean upDateDoctorAndCashier(String id, String name, String lastName, String email, String address) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        long result = 0;
+        long result;
         if (!email.matches(emailPattern)) {
             return false;
         }
@@ -277,7 +277,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 " FROM DoctorMessage AS m INNER JOIN User AS u ON m.doctor_id = u.user_id " +
                 " WHERE m.patient_id = ? " +
                 " ORDER BY m.created_date DESC";
-        Cursor cursor = db.rawQuery(str, new String[] {currentUserId});
+        Cursor cursor = db.rawQuery(str, new String[]{currentUserId});
         return cursor;
+    }
+
+    public Cursor getUser(String userId) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = "SELECT first_name, last_name, email, msp  FROM User WHERE user_Id = ?";
+        Cursor data = sqLiteDatabase.rawQuery(query, new String[] {userId});
+        return data;
     }
 }

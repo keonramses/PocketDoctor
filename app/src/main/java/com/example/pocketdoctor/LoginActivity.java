@@ -111,4 +111,8 @@ public class LoginActivity extends AppCompatActivity {
     public void gotoSignUpActivity(View view) {
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
     }
+    public void clearFields(View view) {
+        edtUsername.getText().clear();
+        edtPassword.getText().clear();
+    }
 }
