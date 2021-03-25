@@ -76,5 +76,11 @@
     <string name="your_message_to_doctor">Your message to doctor</string>
     <string name="send_message">Send message</string>
     <string name="messages_from_doctors">Messages from doctors</string>
-
+    <string name="change_profile_pic">Change profile photo</string>
+    <string name="make_payment">Make payment Now</string>
+    <string name="view_calories">View Calories Consumption</string>
+    <string name="status">Status</string>
+    <string name="my_profile">My Profile</string>
+    <string name="edit">Edit</string>
+    <string name="log_out">Log Out</string>
 </resources>

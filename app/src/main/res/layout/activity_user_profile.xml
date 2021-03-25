@@ -6,4 +6,355 @@
     android:layout_height="match_parent"
     tools:context=".UserProfile">
 
+    <TextView
+        android:id="@+id/txtChangeProfilePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="179dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="174dp"
+        android:text="@string/txtChangeProfilePicture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="62dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="40dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="top"
+        android:lineSpacingExtra="5sp"
+        android:onClick="gotoEditUser"
+        android:text="@string/edit"
+        android:textAppearance="@style/login"
+        android:translationY="-2.62sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/myProfile"
+        android:layout_width="150dp"
+        android:layout_height="38dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="140dp"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/my_profile"
+        android:textAppearance="@style/sign_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtLogout"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtLogout"
+        android:layout_width="62dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="35dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="top"
+        android:lineSpacingExtra="5sp"
+        android:onClick="goToLogin"
+        android:text="@string/log_out"
+        android:textAppearance="@style/login"
+        android:translationY="-2.62sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="75dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="160dp"
+        android:contentDescription="@string/imgAvatarIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/myProfile"
+        app:srcCompat="@drawable/avatarimage" />
+
+    <Button
+        android:id="@+id/btnViewCalories"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="66dp"
+        android:background="@drawable/rectangle_round_button_clear"
+        android:text="@string/view_calories"
+        android:textColor="#828282"
+        android:onClick="goToFoodTracker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.561"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMakePayment" />
+
+    <Button
+        android:id="@+id/btnMakePayment"
+        android:layout_width="343dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="66dp"
+        android:background="@drawable/rectangle_round_button_fill"
+        android:text="@string/make_payment"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+    <TextView
+        android:id="@+id/txtViewUserName"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="43dp"
+        android:autofillHints=""
+        android:background="@null"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtChangeProfilePhoto" />
+
+    <TextView
+        android:id="@+id/txtMSPLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/txtMSPLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider6" />
+
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="343dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="35dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewUserEmail" />
+
+    <TextView
+        android:id="@+id/txtCreateUserEmailLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="62dp"
+        android:text="@string/txtCreateUserEmailLabel"
+        app:layout_constraintEnd_toStartOf="@+id/txtViewUserEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="343dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="35dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewUserLastName" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="343dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="35dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewUserName" />
+
+    <TextView
+        android:id="@+id/txtCreateUserEmailLabel6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="57dp"
+        android:text="@string/status"
+        app:layout_constraintEnd_toStartOf="@+id/txtViewStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider12" />
+
+    <View
+        android:id="@+id/divider12"
+        android:layout_width="343dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="35dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewUserMsp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="73dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/txtEditLastName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+    <TextView
+        android:id="@+id/txtViewUserMsp"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="41dp"
+        android:background="@null"
+        android:ems="10"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtMSPLabel2"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewUserEmail" />
+
+    <TextView
+        android:id="@+id/txtCreateUserNameLabel2"
+        android:layout_width="39dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="240dp"
+        android:text="@string/txtCreateUserNameLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtViewUserEmail"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="42dp"
+        android:background="@null"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewUserLastName" />
+
+    <TextView
+        android:id="@+id/txtViewStatus"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="42dp"
+        android:background="@null"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewUserMsp" />
+
+    <TextView
+        android:id="@+id/txtViewUserLastName"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="7dp"
+        android:background="@null"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewUserName" />
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="343dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="35dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewStatus" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ios_bottom_"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageViewFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/food_tracker"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewHome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_apple"
+            app:tint="#C4C4C4" />
+
+        <ImageView
+            android:id="@+id/imageViewHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/imgHomeNavBar"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewStethoScope"
+            app:layout_constraintStart_toEndOf="@id/imageViewFood"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/home_24"
+            app:tint="#C4C4C4" />
+
+        <ImageView
+            android:id="@+id/imageViewStethoScope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:contentDescription="@string/find_doctor"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageViewHome"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icon_stethoscope"
+            app:tint="#C4C4C4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
