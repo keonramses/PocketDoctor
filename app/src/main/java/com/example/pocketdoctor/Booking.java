@@ -41,7 +41,6 @@ public class Booking extends AppCompatActivity {
          getDoctor();
 
          bookAppointment = findViewById(R.id.buttonBook);
-         onlineHelp = findViewById(R.id.buttonOnlineHelp);
 
         userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
 

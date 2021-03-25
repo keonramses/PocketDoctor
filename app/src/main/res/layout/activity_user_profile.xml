@@ -112,35 +112,23 @@
         android:layout_width="343dp"
         android:layout_height="48dp"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="66dp"
         android:background="@drawable/rectangle_round_button_fill"
+        android:backgroundTint="@color/brown"
         android:text="@string/make_payment"
         android:textColor="@color/white"
-        android:backgroundTint="@color/brown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintHorizontal_bias="0.575"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider7" />
-
-    <TextView
-        android:id="@+id/txtViewUserName"
-        android:layout_width="240dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="43dp"
-        android:autofillHints=""
-        android:background="@null"
-        android:ems="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtChangeProfilePhoto" />
 
     <TextView
         android:id="@+id/txtMSPLabel2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:text="@string/txtMSPLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider6" />
@@ -198,7 +186,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="57dp"
         android:text="@string/status"
         app:layout_constraintEnd_toStartOf="@+id/txtViewStatus"
@@ -222,7 +210,7 @@
         android:layout_width="73dp"
         android:layout_height="21dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/txtEditLastName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider2" />
@@ -230,12 +218,12 @@
     <TextView
         android:id="@+id/txtViewUserMsp"
         android:layout_width="240dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_marginStart="68dp"
         android:layout_marginEnd="41dp"
         android:background="@null"
         android:ems="10"
-        android:text=""
+        android:gravity="bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtMSPLabel2"
         app:layout_constraintTop_toBottomOf="@+id/txtViewUserEmail" />
@@ -245,42 +233,58 @@
         android:layout_width="39dp"
         android:layout_height="17dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/txtCreateUserNameLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/divider2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtViewUserEmail"
         android:layout_width="240dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="42dp"
         android:background="@null"
         android:ems="10"
+        android:gravity="bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewUserLastName" />
 
     <TextView
         android:id="@+id/txtViewStatus"
         android:layout_width="240dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_marginEnd="42dp"
         android:background="@null"
         android:ems="10"
+        android:gravity="bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewUserMsp" />
 
     <TextView
         android:id="@+id/txtViewUserLastName"
         android:layout_width="240dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="7dp"
+        android:layout_height="30dp"
         android:background="@null"
         android:ems="10"
+        android:gravity="bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/txtViewUserName" />
+
+    <TextView
+        android:id="@+id/txtViewUserName"
+        android:layout_width="240dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:background="@null"
+        android:ems="10"
+        android:gravity="bottom"
+        android:fontFamily="@font/roboto_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.359"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/txtChangeProfilePhoto" />
 
     <View
         android:id="@+id/divider7"
