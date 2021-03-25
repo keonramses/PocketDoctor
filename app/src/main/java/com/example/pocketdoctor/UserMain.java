@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class UserMain extends AppCompatActivity {
 
     Button foodTracker;
     Button findDoctor;
     Button viewMessage;
+    ImageView calorieIcon;
+    ImageView stethoscopeIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,8 @@ public class UserMain extends AppCompatActivity {
         foodTracker = findViewById(R.id.buttonCaloriesTracker);
         findDoctor = findViewById(R.id.buttonFindADoctor);
         viewMessage = findViewById(R.id.buttonMessageFromDoctors);
+        calorieIcon = findViewById(R.id.imageViewFood);
+        stethoscopeIcon = findViewById(R.id.imageViewStethoScope);
 
         foodTracker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +43,26 @@ public class UserMain extends AppCompatActivity {
         viewMessage.setOnClickListener(v -> {
             startActivity(new Intent(UserMain.this, DoctorMessageActivity.class));
         });
+
+        //CONTEXTUAL MENU ICON FUNCTION
+        calorieIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserMain.this, FoodTrackerActivity.class));
+            }
+        });
+
+        //CONTEXTUAL MENU ICON FUNCTION
+        stethoscopeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UserMain.this, FindDoctor.class));
+            }
+        });
+
     }
+
+
 
 
 }
