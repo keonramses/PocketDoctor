@@ -84,6 +84,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
+    public Cursor resetUser(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sql = "Select user_id FROM User WHERE email='" + email + "';";
+        Cursor result = db.rawQuery(sql, null);
+        return result;
+
+    }
+    public int resetPassword(String password, String email)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result;
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("password", password);
+        result = db.update("User", contentValues, "email = ?", new String[]{email});
+        return result;
+    }
+
     public boolean insertDoctorAndCashier(String userId, String userFirstName, String userLastName, String email, String password, String address,
                                           int user_type)
     {
