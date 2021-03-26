@@ -277,7 +277,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "r.address, r.content, r.is_view, r.created_date, r.doctor_id" +
                 " FROM (SELECT * FROM DoctorMessage AS m INNER JOIN User AS u ON m.doctor_id = u.user_id ORDER BY m.created_date DESC) AS r " +
                 " WHERE r.patient_id = ? " +
-                " ORDER BY r.created_date DESC";
+                "GROUP BY r.doctor_id, r.user_id";
         Cursor cursor = db.rawQuery(str, new String[]{currentUserId});
         return cursor;
     }
@@ -290,21 +290,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getUserMessageThread(String userId, String doctorId) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String msgDoctorToUser = "SELECT u.user_id, u.first_name || u.last_name AS name, " +
-                "u.address, m.content, m.is_view, m.created_date, m.doctor_id" +
-                " FROM DoctorMessage AS m INNER JOIN User AS u ON m.doctor_id = u.user_id " +
-                " WHERE m.patient_id = ? AND m.doctor_id = ?";
-        String msgUserToDoctor = "SELECT u.user_id, u.first_name || u.last_name AS name, " +
-                "u.address, m.content, m.is_view, m.created_date, m.doctor_id" +
-                " FROM PatientMessage AS m INNER JOIN User AS u ON m.patient_id = u.user_id " +
-                " WHERE m.doctor_id = ? ";
-        String unionStr = msgDoctorToUser + " UNION " + msgUserToDoctor + " ORDER BY created_date ASC";
-        Cursor cursor = db.rawQuery(unionStr, new String[]{userId, doctorId, doctorId});
-        return cursor;
-    }
-
-    public Cursor getDoctorMessageThread(String userId, String doctorId) {
         SQLiteDatabase db = this.getReadableDatabase();
         String msgDoctorToUser = "SELECT u.user_id, u.first_name || u.last_name AS name, " +
                 "u.address, m.content, m.is_view, m.created_date, m.doctor_id" +
