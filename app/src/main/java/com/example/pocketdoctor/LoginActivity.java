@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         edtPassword = findViewById(R.id.editTextTextPassword);
         showHidePass = findViewById(R.id.showHidePass2);
 
-        //this.deleteDatabase("pocket_docter");
+//        this.deleteDatabase("pocket_docter"); // Delete and recreate database
         databaseHelper = new DatabaseHelper(this);
 
 
