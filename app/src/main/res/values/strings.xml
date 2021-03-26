@@ -86,4 +86,8 @@
     <string name="log_out">Log Out</string>
     <string name="messages_from_patients">Messages from patients</string>
     <string name="your_message_to_the_patient">your message to the patient</string>
+    <string name="newPassword">Enter New Password</string>
+    <string name="confirm_newPassword">Confirm New Password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_error">User Not Found</string>
 </resources>

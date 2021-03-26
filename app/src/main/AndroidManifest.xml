@@ -20,9 +20,9 @@
         <activity android:name=".EditDoctorAndCashierActivity" />
         <activity android:name=".CreateDoctorAndCashierActivity" />
         <activity android:name=".SearchUserAdminActivity" />
-        <activity
-            android:name=".FoodTrackerActivity"
+        <activity android:name=".FoodTrackerActivity"
             android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".ForgotPasswordActivity"></activity>
         <activity android:name=".HomeAdmin" />
         <activity android:name=".PatientAccountActivity" />
         <activity android:name=".CreateAdminUserAccountActivity" />
