@@ -53,8 +53,8 @@
         android:id="@+id/buttonMessageFromDoctors"
         android:layout_width="328dp"
         android:layout_height="136dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="36dp"
         android:background="@drawable/round_btn"
         android:backgroundTint="@color/blue"
@@ -66,7 +66,6 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonFindADoctor" />
 
