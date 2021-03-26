@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
 
+import java.util.Date;
+
 public class BookingPatientMessage extends AppCompatActivity {
 
     String date;
@@ -43,14 +45,14 @@ public class BookingPatientMessage extends AppCompatActivity {
             String userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
             boolean success;
             try {
-                success = databaseHelper.insertDoctorAppointment(userId, doctorId, date, message.getText().toString());
+                success = databaseHelper.insertDoctorAppointment(userId, doctorId, date, message.getText().toString(), (new Date()).toString());
             } catch (SQLiteConstraintException ex) {
                 success = false;
             }
             if (success) {
                 Toast.makeText(BookingPatientMessage.this, "Your message was sent to the doctor", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(BookingPatientMessage.this, "Sorry, just 1 message a day.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BookingPatientMessage.this, "Sorry, you have book on " + date, Toast.LENGTH_SHORT).show();
             }
 
         });
