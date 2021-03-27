@@ -90,6 +90,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/edit_textbox"
         android:ems="10"
+        android:text="doctor@doctor.com"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:paddingStart="@dimen/padding_left_right"
@@ -102,6 +103,7 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
+        android:text="doctor"
         android:layout_width="343dp"
         android:layout_height="50dp"
         android:layout_marginStart="@dimen/mergin_left_right"

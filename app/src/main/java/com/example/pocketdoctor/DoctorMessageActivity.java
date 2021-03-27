@@ -43,7 +43,6 @@ public class DoctorMessageActivity extends AppCompatActivity {
             doctor.put("image", String.valueOf(R.drawable.avatarimage)); //doctor name
             doctor.put("address", cursor.getString(0) + "\n" + cursor.getString(1)); //address
             doctor.put("messageStatus", cursor.getString(2)); //message content
-//            doctor.put("isView", cursor.getString(3)); // is_view
             doctor.put("messageDate", cursor.getString(4));
             doctor.put("doctor_id", cursor.getString(5));
             doctorList.add(doctor);
