@@ -113,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clearFields(View view) {
-        firstName.getText().clear();;
-        lastName.getText().clear();;
-        email.getText().clear();;
-        password.getText().clear();;
+        firstName.getText().clear();
+        lastName.getText().clear();
+        email.getText().clear();
+        password.getText().clear();
     }
 }
