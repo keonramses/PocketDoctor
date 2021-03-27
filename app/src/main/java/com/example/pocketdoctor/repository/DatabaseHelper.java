@@ -11,16 +11,19 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.pocketdoctor.CashierMain;
 import com.example.pocketdoctor.EditAdminUserAccountActivity;
 import com.example.pocketdoctor.PocketDoctorApplication;
 
 import com.example.pocketdoctor.PocketDoctorApplication;
+import com.example.pocketdoctor.User;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.SynchronousQueue;
 
 import static java.sql.DriverManager.println;
 
@@ -91,8 +94,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
 
     }
-    public int resetPassword(String password, String email)
-    {
+
+    public int resetPassword(String password, String email) {
         SQLiteDatabase db = this.getWritableDatabase();
         int result;
         ContentValues contentValues = new ContentValues();
@@ -102,8 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertDoctorAndCashier(String userId, String userFirstName, String userLastName, String email, String password, String address,
-                                          int user_type)
-    {
+                                          int user_type) {
         SQLiteDatabase db = this.getWritableDatabase();
         long result;
         if (!email.matches(emailPattern)) {
@@ -182,11 +184,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return -1;
         }
     }
-    public Cursor getUsersList(int user_type) {
+
+    public ArrayList<User> getCashierList() {
+        ArrayList<User> users = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        String query = "SELECT user_id, first_name, last_name, email, msp  FROM User WHERE user_type='" + user_type + "';";
-        Cursor data = sqLiteDatabase.rawQuery(query, null);
-        return data;
+        try {
+            String query = "SELECT first_name, last_name, " +
+                    "payment" +
+                    " FROM PatientMessage as p INNER JOIN User as u ON p.patient_id = u.user_id" +
+                    " WHERE u.msp = 'no' AND p.payment = 'yes'";
+            Cursor data = sqLiteDatabase.rawQuery(query, null);
+            if (data.moveToFirst()) {
+                do {
+                    String firstName = data.getString(0);
+                    String lastName = data.getString(1);
+                    String duePaymentMessage = data.getString(2);
+                    User user = new User();
+                    user.setUserFirstName(firstName);
+                    user.setUserLastName(lastName);
+                    user.setUserDuePaymentMessage(duePaymentMessage);
+                    users.add(user);
+                } while (data.moveToNext());
+            }
+        } catch (Exception e) {
+            users = null;
+        }
+        return users;
     }
 
     public PocketDoctorApplication searchUser(String email, int userType) {
@@ -233,6 +256,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return false;
     }
+
     public boolean upDateDoctorAndCashier(String id, String name, String lastName, String email, String address) {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         long result;
@@ -253,19 +277,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Cursor getDoctorNearYou()
-    {
+    public Cursor getDoctorNearYou() {
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT user_id, first_name, last_name, address FROM User WHERE user_type = 2";
         Cursor cursor = db.rawQuery(sql, null);
         return cursor;
     }
 
-    public Cursor findDoctor(String docId)
-    {
+    public Cursor findDoctor(String docId) {
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT first_name, last_name, address FROM User WHERE user_id = ?";
-        Cursor cursor = db.rawQuery(sql, new String[] {docId});
+        Cursor cursor = db.rawQuery(sql, new String[]{docId});
         return cursor;
     }
 
@@ -278,6 +300,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("appointment_date", date);
         values.put("created_date", createdDate);
         values.put("is_view", 0);
+        values.put("payment", "yes");
         try {
             db.insertOrThrow("PatientMessage", null, values);
         } catch (SQLiteConstraintException ex) {
@@ -302,7 +325,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getUser(String userId) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         String query = "SELECT first_name, last_name, email, msp  FROM User WHERE user_Id = ?";
-        Cursor data = sqLiteDatabase.rawQuery(query, new String[] {userId});
+        Cursor data = sqLiteDatabase.rawQuery(query, new String[]{userId});
         return data;
     }
 
@@ -349,4 +372,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return true;
     }
+
+    public Cursor getUserDueAppointment(String userId) {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = "SELECT appointment_date  FROM PatientMessage WHERE patient_id = ?";
+        Cursor data = sqLiteDatabase.rawQuery(query, new String[]{userId});
+        return data;
+    }
+
+    public boolean updatePayment(String userId)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        long result;
+        ContentValues values = new ContentValues();
+        values.put("payment", "no");
+        result = sqLiteDatabase.update("PatientMessage", values, "patient_id=?",
+                new String[]{userId});
+        if (result > 0)
+            return true;
+        else
+            return false;
+    }
+
 }
