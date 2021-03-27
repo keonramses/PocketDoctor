@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BookingPatientMessage extends AppCompatActivity {
@@ -45,7 +46,7 @@ public class BookingPatientMessage extends AppCompatActivity {
             String userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
             boolean success;
             try {
-                success = databaseHelper.insertDoctorAppointment(userId, doctorId, date, message.getText().toString(), (new Date()).toString());
+                success = databaseHelper.insertDoctorAppointment(userId, doctorId, date, message.getText().toString(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             } catch (SQLiteConstraintException ex) {
                 success = false;
             }
