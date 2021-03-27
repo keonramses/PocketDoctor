@@ -7,6 +7,25 @@
     tools:context=".EditAdminUserAccountActivity">
 
     <TextView
+        android:id="@+id/txtLogOutEditUSer"
+        android:layout_width="62dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="top"
+        android:lineSpacingExtra="5sp"
+        android:onClick="goToLogin"
+        android:text="@string/log_out"
+        android:textAppearance="@style/login"
+        android:translationY="-2.62sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/txtChangeProfilePhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,6 +105,7 @@
             android:layout_centerInParent="true"
             android:contentDescription="@string/imgHomeNavBar"
             android:focusableInTouchMode="true"
+            android:onClick="goToHome"
             app:srcCompat="@drawable/home_24"
             app:tint="#C4C4C4" />
     </RelativeLayout>

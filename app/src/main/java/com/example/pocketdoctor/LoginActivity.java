@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         edtPassword = findViewById(R.id.editTextTextPassword);
         showHidePass = findViewById(R.id.showHidePass2);
 
-       // this.deleteDatabase("pocket_docter"); // Delete and recreate database
+//        this.deleteDatabase("pocket_docter"); // Delete and recreate database
         databaseHelper = new DatabaseHelper(this);
 
 
@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void gotoForgotPasswordActivity(View view) {
-        startActivity(new Intent(LoginActivity.this,ForgotPasswordActivity.class));
+        //TODO: goto forgot password activity
     }
 
     public void gotoSignUpActivity(View view) {
