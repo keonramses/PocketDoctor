@@ -375,7 +375,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getUserDueAppointment(String userId) {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        String query = "SELECT appointment_date  FROM PatientMessage WHERE patient_id = ?";
+        String query = "SELECT appointment_date, payment  FROM PatientMessage WHERE patient_id = ?";
         Cursor data = sqLiteDatabase.rawQuery(query, new String[]{userId});
         return data;
     }
