@@ -25,6 +25,20 @@
 
 
     <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="@font/roboto_regular"
+        android:onClick="gotoLoginActivity"
+        android:text="@string/log_out"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/list_of_doc"
         android:layout_width="294dp"
         android:layout_height="41dp"
@@ -47,7 +61,7 @@
         android:layout_height="24dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="34dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="40dp"
         android:clickable="true"
@@ -104,6 +118,7 @@
             android:layout_marginTop="18dp"
             android:contentDescription="@string/food_tracker"
             android:focusableInTouchMode="true"
+            android:onClick="gotoFoodTracker"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageViewHome"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,6 +134,7 @@
             android:layout_marginTop="18dp"
             android:contentDescription="@string/imgHomeNavBar"
             android:focusableInTouchMode="true"
+            android:onClick="gotoMainUser"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageViewStethoScope"
@@ -135,6 +151,7 @@
             android:layout_marginTop="18dp"
             android:contentDescription="@string/find_doctor"
             android:focusableInTouchMode="true"
+            android:onClick="gotoFindDoctorSearch"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageViewHome"

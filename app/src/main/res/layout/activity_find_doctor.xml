@@ -26,12 +26,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="62dp"
+        android:fontFamily="@font/roboto_regular"
+        android:onClick="gotoLoginActivity"
+        android:text="@string/log_out"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/txtSignUp"
         android:layout_width="62dp"
         android:layout_height="24dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="62dp"
         android:layout_marginEnd="32dp"
         android:clickable="true"
         android:focusable="true"

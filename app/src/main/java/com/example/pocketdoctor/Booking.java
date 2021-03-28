@@ -56,11 +56,6 @@ public class Booking extends AppCompatActivity {
                        calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd");
 
-
-                       /*Intent intent = new Intent(Booking.this, Patient_BookAppointmentActivity.class);
-                       intent.putExtra("Date",simpleDateFormat.format(calendar.getTime()));
-                       intent.putExtra("UserId",userId);
-                       startActivity(intent);*/
                        date = simpleDateFormat.format(calendar.getTime());
                        Intent intent = new Intent(Booking.this, BookingPatientMessage.class);
                        intent.putExtra("date",simpleDateFormat.format(calendar.getTime()));
@@ -91,4 +86,20 @@ public class Booking extends AppCompatActivity {
     public void gotoFindDoctor(View view) {
         startActivity(new Intent(Booking.this, ListOfDoctors.class));
     }
+
+    public void gotoLoginActivity(View view){
+        startActivity(new Intent(Booking.this, LoginActivity.class));
+    }
+
+    public void gotoFoodTracker(View view){
+        startActivity(new Intent(Booking.this, FoodTrackerActivity.class));
+    }
+    public void gotoFindDoctorSearch(View view){
+        startActivity(new Intent(Booking.this, FindDoctor.class));
+    }
+    public void gotoMainUser(View view){
+        startActivity(new Intent(Booking.this, UserMain.class));
+    }
+
+
 }

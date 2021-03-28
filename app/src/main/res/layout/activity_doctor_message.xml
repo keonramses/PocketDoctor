@@ -20,6 +20,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="41dp"
+        android:fontFamily="@font/roboto_regular"
+        android:onClick="gotoLoginActivity"
+        android:text="@string/log_out"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/listDescription"
@@ -39,72 +52,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/ios_bottom_"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/listDescription"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ios_bottom_"
-        android:layout_width="match_parent"
-        android:layout_height="84dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/imageViewFood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="18dp"
-            android:contentDescription="@string/food_tracker"
-            android:focusableInTouchMode="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewHome"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/icon_apple"
-            app:tint="#C4C4C4" />
-
-        <ImageView
-            android:id="@+id/imageViewHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="18dp"
-            android:contentDescription="@string/imgHomeNavBar"
-            android:focusableInTouchMode="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewStethoScope"
-            app:layout_constraintStart_toEndOf="@id/imageViewFood"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/home_24"
-            app:tint="@color/black" />
-
-        <ImageView
-            android:id="@+id/imageViewStethoScope"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="18dp"
-            android:contentDescription="@string/find_doctor"
-            android:focusableInTouchMode="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imageViewHome"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/icon_stethoscope"
-            app:tint="#C4C4C4" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@id/listDescription" />
 
     <TextView
         android:id="@+id/profile"
