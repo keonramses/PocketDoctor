@@ -112,6 +112,13 @@ public class UserProfile extends AppCompatActivity {
                 statusLabel.setVisibility(View.GONE);
             }
 
+            if(sStatus == "" || sStatus == null)
+            {
+                makePayment.setVisibility(View.GONE);
+                status.setVisibility(View.GONE);
+                statusLabel.setVisibility(View.GONE);
+            }
+
             if (sPayment != null) {
                 if ((sPayment.equalsIgnoreCase("no"))) {
                     makePayment.setVisibility(View.GONE);
