@@ -22,7 +22,7 @@ public class UserProfile extends AppCompatActivity {
 
     TextView name, lastName, email, msp, status, statusLabel;
     DatabaseHelper databaseHelper;
-    String userId, sName, sLastName, sEmail, sMsp, sStatus;
+    String userId, sName, sLastName, sEmail, sMsp, sStatus, sPayment;
     ImageView calorieIcon, homeIcon, stethoscopeIcon;
     Button makePayment, viewCalories;
 
@@ -93,6 +93,7 @@ public class UserProfile extends AppCompatActivity {
                     if (adate.getCount() > 0) {
                         while (adate.moveToNext()) {
                             sStatus = adate.getString(0);
+                            sPayment = adate.getString(1);
                         }
                         status.setText("You have a due payment for " + sStatus);
                     }
@@ -104,13 +105,21 @@ public class UserProfile extends AppCompatActivity {
             lastName.setText(sLastName);
             email.setText(sEmail);
             msp.setText(sMsp);
-            status.setText("You have a due payment for " + sStatus);
 
             if ((msp.getText().toString().equalsIgnoreCase("yes"))) {
                 makePayment.setVisibility(View.GONE);
                 status.setVisibility(View.GONE);
                 statusLabel.setVisibility(View.GONE);
             }
+
+            if (sPayment != null) {
+                if ((sPayment.equalsIgnoreCase("no"))) {
+                    makePayment.setVisibility(View.GONE);
+                    status.setVisibility(View.GONE);
+                    statusLabel.setVisibility(View.GONE);
+                }
+            }
+
         }
     }
 
@@ -126,26 +135,26 @@ public class UserProfile extends AppCompatActivity {
         }
     }
 
-        public void gotoEditUser (View view){
-            
-            PocketDoctorApplication user = new PocketDoctorApplication();
-            Intent intent = new Intent(UserProfile.this, EditAdminUserAccountActivity.class);
-            user.setCurrentUserId(userId);
-            user.setCurrentUserName(sName);
-            user.setCurrentUserLastName(sLastName);
-            user.setCurrentUserEmail(sEmail);
-            user.setCurrentUserMSP(sMsp);
-            String comesFromUser = "comes from user";
-            intent.putExtra("MyObject", user);
-            intent.putExtra("From", comesFromUser);
-            startActivity(intent);
-        }
+    public void gotoEditUser(View view) {
 
-        public void goToLogin (View view){
-            startActivity(new Intent(UserProfile.this, LoginActivity.class));
-        }
-
-        public void goToFoodTracker (View view){
-            startActivity(new Intent(UserProfile.this, FoodTrackerActivity.class));
-        }
+        PocketDoctorApplication user = new PocketDoctorApplication();
+        Intent intent = new Intent(UserProfile.this, EditAdminUserAccountActivity.class);
+        user.setCurrentUserId(userId);
+        user.setCurrentUserName(sName);
+        user.setCurrentUserLastName(sLastName);
+        user.setCurrentUserEmail(sEmail);
+        user.setCurrentUserMSP(sMsp);
+        String comesFromUser = "comes from user";
+        intent.putExtra("MyObject", user);
+        intent.putExtra("From", comesFromUser);
+        startActivity(intent);
     }
+
+    public void goToLogin(View view) {
+        startActivity(new Intent(UserProfile.this, LoginActivity.class));
+    }
+
+    public void goToFoodTracker(View view) {
+        startActivity(new Intent(UserProfile.this, FoodTrackerActivity.class));
+    }
+}
