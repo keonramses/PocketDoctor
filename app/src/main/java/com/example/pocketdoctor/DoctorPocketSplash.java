@@ -20,7 +20,7 @@ public class DoctorPocketSplash extends AppCompatActivity {
             public void run() {
                 finish();
 
-                startActivity(new Intent(DoctorPocketSplash.this, LoginActivity.class));
+                startActivity(new Intent(DoctorPocketSplash.this, MainActivity.class));
                 //startActivity(new Intent(DoctorPocketSplash.this, HomeAdmin.class));
 
             }

@@ -1,6 +1,7 @@
 package com.example.pocketdoctor;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ import java.util.List;
 
 public class FoodTrackerActivity extends AppCompatActivity {
 
+    private static final int SAFE_CALORIES_INTAKE = 2000;
+    private static final int ALERT_CALORIES_INTAKE = 2600;
     ListView listView;
     SimpleAdapter simpleAdapter;
     String[] fromKeyProperty;
@@ -91,11 +94,20 @@ public class FoodTrackerActivity extends AppCompatActivity {
 
             if (todayCalories > 0) {
                 calories += todayCalories;
-                todayCalories = calories;
             }
+
+            todayCalories = calories;
+
             databaseHelper.addUserDailyIntake(userId, calories, today);
 
-            txtTodayCalories.setText(String.valueOf(calories));
+            txtTodayCalories.setText(String.valueOf(calories) + "\n" + "Calories");
+            if (calories <= SAFE_CALORIES_INTAKE) {
+                txtTodayCalories.setBackgroundTintList(ContextCompat.getColorStateList(FoodTrackerActivity.this, R.color.green));
+            } else if (calories > SAFE_CALORIES_INTAKE && calories <= ALERT_CALORIES_INTAKE) {
+                txtTodayCalories.setBackgroundTintList(ContextCompat.getColorStateList(FoodTrackerActivity.this, R.color.yellow));
+            } else {
+                txtTodayCalories.setBackgroundTintList(ContextCompat.getColorStateList(FoodTrackerActivity.this, R.color.orange));
+            }
         });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -131,5 +143,8 @@ public class FoodTrackerActivity extends AppCompatActivity {
 
     public void gotoProfileActivity (View view) {
         startActivity(new Intent(FoodTrackerActivity.this, UserProfile.class));
+    }
+    public void gotoLoginActivity(View view){
+        startActivity(new Intent(FoodTrackerActivity.this, LoginActivity.class));
     }
 }

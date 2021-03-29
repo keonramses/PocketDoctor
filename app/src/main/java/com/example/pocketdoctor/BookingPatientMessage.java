@@ -3,6 +3,7 @@ package com.example.pocketdoctor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Application;
+import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.pocketdoctor.repository.DatabaseHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BookingPatientMessage extends AppCompatActivity {
@@ -45,7 +47,7 @@ public class BookingPatientMessage extends AppCompatActivity {
             String userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
             boolean success;
             try {
-                success = databaseHelper.insertDoctorAppointment(userId, doctorId, date, message.getText().toString(), (new Date()).toString());
+                success = databaseHelper.insertDoctorAppointment(userId, doctorId, date, message.getText().toString(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             } catch (SQLiteConstraintException ex) {
                 success = false;
             }
@@ -58,8 +60,20 @@ public class BookingPatientMessage extends AppCompatActivity {
         });
 
     }
+    public void gotoLoginActivity(View view){
+        startActivity(new Intent(BookingPatientMessage.this, LoginActivity.class));
+    }
 
     public void goback(View view) {
         this.onBackPressed();
+    }
+    public void gotoFoodTracker(View view){
+        startActivity(new Intent(BookingPatientMessage.this, FoodTrackerActivity.class));
+    }
+    public void gotoFindDoctorSearch(View view){
+        startActivity(new Intent(BookingPatientMessage.this, FindDoctor.class));
+    }
+    public void gotoMainUser(View view){
+        startActivity(new Intent(BookingPatientMessage.this, UserMain.class));
     }
 }

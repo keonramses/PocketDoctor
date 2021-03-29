@@ -46,13 +46,12 @@ public class FindDoctor extends AppCompatActivity {
         stringCity = city.getText().toString();
         i.putExtra("ValueCity",stringCity);
         startActivity(i);
-
     }
 
-
-
-   // TODO -->
     public void gotoProfileActivity(View view) {
-        startActivity(new Intent(FindDoctor.this, ListOfDoctors.class));
+        startActivity(new Intent(FindDoctor.this, UserProfile.class));
+    }
+    public void gotoLoginActivity(View view){
+        startActivity(new Intent(FindDoctor.this, LoginActivity.class));
     }
 }

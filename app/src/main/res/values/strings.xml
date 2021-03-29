@@ -40,6 +40,9 @@
     <string name="promptSpinnerMsp">Select Option</string>
     <string name="hintLastName">Enter Last Name</string>
     <string name="hintMSP">Enter yes or no</string>
+    <string name="titleCashierMain">Cashier Home</string>
+    <string name="paymentCheckIn">Payment check-in</string>
+    <string name="paymentReminder">Send Payment Reminder</string>
     <string-array name="txtMspSelection">
         <item>Yes</item>
         <item>No</item>
@@ -75,6 +78,7 @@
     <string name="book_appointment">Book an appointment</string>
     <string name="your_message_to_doctor">Your message to doctor</string>
     <string name="send_message">Send message</string>
+    <string name="messages_history">Messages history</string>
     <string name="messages_from_doctors">Messages from doctors</string>
     <string name="change_profile_pic">Change profile photo</string>
     <string name="make_payment">Make payment Now</string>
@@ -83,4 +87,10 @@
     <string name="my_profile">My Profile</string>
     <string name="edit">Edit</string>
     <string name="log_out">Log Out</string>
+    <string name="messages_from_patients">Messages from patients</string>
+    <string name="your_message_to_the_patient">your message to the patient</string>
+    <string name="newPassword">Enter New Password</string>
+    <string name="confirm_newPassword">Confirm New Password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_error">User Not Found</string>
 </resources>
