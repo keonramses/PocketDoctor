@@ -218,7 +218,7 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(comesFrom)) {
-                    startActivity(new Intent(EditAdminUserAccountActivity.this, UserMain.class));
+                    startActivity(new Intent(EditAdminUserAccountActivity.this, UserProfile.class));
                 }else if(TextUtils.isEmpty(comesFrom) || comesFrom == null)
                 {
                     startActivity(new Intent(EditAdminUserAccountActivity.this, HomeAdmin.class));
