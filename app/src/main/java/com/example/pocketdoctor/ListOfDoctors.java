@@ -73,7 +73,7 @@ public class ListOfDoctors extends AppCompatActivity {
 
     }
     private ArrayList<User> GetDoctors(){
-        Cursor cursor = databaseHelper.getDoctorNearYou();
+        Cursor cursor = databaseHelper.getDoctorNearLocation(stCity);
         ArrayList<User> arrayList = new ArrayList<>();
         while(cursor.moveToNext()) {
             String doctorId = cursor.getString(0);

@@ -394,4 +394,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
+    public Cursor getDoctorNearLocation(String address) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT user_id, first_name, last_name, address FROM User WHERE user_type = 2 AND address LIKE ? ";
+        Cursor cursor = db.rawQuery(sql, new String[]{"%" + address + "%"});
+        return cursor;
+    }
+
 }
