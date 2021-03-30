@@ -37,16 +37,18 @@ public class DoctorMessageActivity extends AppCompatActivity {
         userId = ((PocketDoctorApplication)getApplication()).getCurrentUserId();
 
         Cursor cursor = databaseHelper.getDoctorMessageForUserId(userId);
-        cursor.moveToFirst();
-        do  {
-            HashMap<String, String> doctor = new HashMap<String, String>();
-            doctor.put("image", String.valueOf(R.drawable.avatarimage)); //doctor name
-            doctor.put("address", cursor.getString(0) + "\n" + cursor.getString(1)); //address
-            doctor.put("messageStatus", cursor.getString(2)); //message content
-            doctor.put("messageDate", cursor.getString(4));
-            doctor.put("doctor_id", cursor.getString(5));
-            doctorList.add(doctor);
-        } while (cursor.moveToNext());
+
+        if (cursor.moveToFirst()) {
+            do {
+                HashMap<String, String> doctor = new HashMap<String, String>();
+                doctor.put("image", String.valueOf(R.drawable.avatarimage)); //doctor name
+                doctor.put("address", cursor.getString(0) + "\n" + cursor.getString(1)); //address
+                doctor.put("messageStatus", cursor.getString(2)); //message content
+                doctor.put("messageDate", cursor.getString(4));
+                doctor.put("doctor_id", cursor.getString(5));
+                doctorList.add(doctor);
+            } while (cursor.moveToNext());
+        }
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, doctorList, R.layout.listview_doctor_message_items, fromKeyProperty, toResourceId);
 
@@ -62,30 +64,10 @@ public class DoctorMessageActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        calorieIcon = findViewById(R.id.imageViewFood);
-        homeIcon = findViewById(R.id.imageViewHome);
-        stethoscopeIcon = findViewById(R.id.imageViewStethoScope);
 
-        //CONTEXTUAL MENU ICON FUNCTION
-        calorieIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DoctorMessageActivity.this, FoodTrackerActivity.class));
-            }
-        });
-        //CONTEXTUAL MENU ICON FUNCTION
-        homeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DoctorMessageActivity.this, UserMain.class));
-            }
-        });
-        //CONTEXTUAL MENU ICON FUNCTION
-        stethoscopeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DoctorMessageActivity.this, FindDoctor.class));
-            }
-        });
+
+    }
+    public void gotoLoginActivity(View view){
+        startActivity(new Intent(DoctorMessageActivity.this, LoginActivity.class));
     }
 }

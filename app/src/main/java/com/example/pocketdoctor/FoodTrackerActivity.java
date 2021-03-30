@@ -144,4 +144,7 @@ public class FoodTrackerActivity extends AppCompatActivity {
     public void gotoProfileActivity (View view) {
         startActivity(new Intent(FoodTrackerActivity.this, UserProfile.class));
     }
+    public void gotoLoginActivity(View view){
+        startActivity(new Intent(FoodTrackerActivity.this, LoginActivity.class));
+    }
 }

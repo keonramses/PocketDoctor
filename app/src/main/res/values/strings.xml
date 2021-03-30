@@ -93,4 +93,5 @@
     <string name="confirm_newPassword">Confirm New Password</string>
     <string name="reset_password">Reset Password</string>
     <string name="reset_error">User Not Found</string>
+    <string name="hintMsg">Please enter any pre-exsisting conditions and/or active medication in your booking message.</string>
 </resources>

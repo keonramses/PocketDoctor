@@ -3,6 +3,7 @@ package com.example.pocketdoctor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Application;
+import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.view.View;
@@ -52,6 +53,7 @@ public class BookingPatientMessage extends AppCompatActivity {
             }
             if (success) {
                 Toast.makeText(BookingPatientMessage.this, "Your message was sent to the doctor", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(BookingPatientMessage.this, UserMain.class));
             } else {
                 Toast.makeText(BookingPatientMessage.this, "Sorry, you have book on " + date, Toast.LENGTH_SHORT).show();
             }
@@ -59,8 +61,20 @@ public class BookingPatientMessage extends AppCompatActivity {
         });
 
     }
+    public void gotoLoginActivity(View view){
+        startActivity(new Intent(BookingPatientMessage.this, LoginActivity.class));
+    }
 
     public void goback(View view) {
         this.onBackPressed();
+    }
+    public void gotoFoodTracker(View view){
+        startActivity(new Intent(BookingPatientMessage.this, FoodTrackerActivity.class));
+    }
+    public void gotoFindDoctorSearch(View view){
+        startActivity(new Intent(BookingPatientMessage.this, FindDoctor.class));
+    }
+    public void gotoMainUser(View view){
+        startActivity(new Intent(BookingPatientMessage.this, UserMain.class));
     }
 }

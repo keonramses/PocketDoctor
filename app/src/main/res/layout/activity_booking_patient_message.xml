@@ -23,26 +23,40 @@
         app:layout_constraintHorizontal_bias="0.017"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="@font/roboto_regular"
+        android:onClick="gotoLoginActivity"
+        android:text="@string/log_out"
+        android:textColor="@color/gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/appointmentInfo"
         android:layout_width="166dp"
         android:layout_height="73dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="38dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/doctorInfo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/doctorInfo"
-        app:layout_constraintTop_toTopOf="@+id/doctorInfo"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/findDoctor" />
 
     <TextView
         android:id="@+id/doctorInfo"
-        android:layout_width="207dp"
-        android:layout_height="88dp"
+        android:layout_width="155dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="17dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtMessage"
-        app:layout_constraintEnd_toStartOf="@id/appointmentInfo"
+        app:layout_constraintEnd_toStartOf="@+id/appointmentInfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/findDoctor" />
 
@@ -60,6 +74,7 @@
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/your_message_to_doctor"
+        android:inputType="text"
         android:lineSpacingExtra="0sp"
         android:lines="10"
         android:paddingStart="15dp"
@@ -70,9 +85,11 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doctorInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/doctorInfo"
+        app:layout_constraintVertical_bias="0.804"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/txtSignUp"
@@ -95,42 +112,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="60dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="1"
-        app:layout_constraintBottom_toTopOf="@+id/ios_bottom_"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtMessage">
-
-
-        <Button
-            android:id="@+id/buttonSendMessage"
-            android:layout_width="204dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/btn_circular"
-            android:backgroundTint="@color/gray"
-            android:drawableStart="@drawable/message_24"
-            android:drawableTint="@color/black"
-            android:fontFamily="@font/roboto_regular"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:text="@string/send_message"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-
-    </LinearLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ios_bottom_"
         android:layout_width="match_parent"
@@ -152,6 +133,7 @@
             android:layout_marginTop="18dp"
             android:contentDescription="@string/food_tracker"
             android:focusableInTouchMode="true"
+            android:onClick="gotoFoodTracker"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageViewHome"
             app:layout_constraintStart_toStartOf="parent"
@@ -167,6 +149,7 @@
             android:layout_marginTop="18dp"
             android:contentDescription="@string/imgHomeNavBar"
             android:focusableInTouchMode="true"
+            android:onClick="gotoMainUser"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageViewStethoScope"
@@ -183,6 +166,7 @@
             android:layout_marginTop="18dp"
             android:contentDescription="@string/find_doctor"
             android:focusableInTouchMode="true"
+            android:onClick="gotoFindDoctorSearch"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageViewHome"
@@ -191,6 +175,52 @@
             app:tint="@color/black" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/booking_hint"
+        android:layout_width="344dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="3dp"
+        android:text="@string/hintMsg"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edtMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctorInfo" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtMessage">
+
+
+        <Button
+            android:id="@+id/buttonSendMessage"
+            android:layout_width="346dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/btn_circular"
+            android:backgroundTint="@color/gray"
+            android:drawableStart="@drawable/message_24"
+            android:drawableTint="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingStart="80dp"
+            android:paddingEnd="80dp"
+            android:text="@string/send_message"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

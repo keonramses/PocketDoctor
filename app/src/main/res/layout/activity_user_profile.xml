@@ -112,16 +112,16 @@
         android:layout_width="343dp"
         android:layout_height="48dp"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="66dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/rectangle_round_button_fill_brown"
         android:onClick="updatePayment"
         android:text="@string/make_payment"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnViewCalories"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.575"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider7" />
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtMSPLabel2"
@@ -286,18 +286,7 @@
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/txtChangeProfilePhoto" />
 
-    <View
-        android:id="@+id/divider7"
-        android:layout_width="343dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="35dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtViewStatus" />
+
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

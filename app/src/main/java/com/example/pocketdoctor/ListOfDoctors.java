@@ -12,6 +12,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -30,6 +31,8 @@ public class ListOfDoctors extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     ArrayList<User> arrayList;
     MyAdapter myAdapter;
+    ImageView calorieIcon;
+    ImageView homeIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,25 @@ public class ListOfDoctors extends AppCompatActivity {
         arrayList = GetDoctors();
         loadDataInListViewII(arrayList);
 
+        calorieIcon = findViewById(R.id.imageViewFood);
+        homeIcon = findViewById(R.id.imageViewHome);
+
+        //CONTEXTUAL MENU ICON FUNCTION
+        calorieIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ListOfDoctors.this, FoodTrackerActivity.class));
+            }
+        });
+
+        //CONTEXTUAL MENU ICON FUNCTION
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ListOfDoctors.this, UserMain.class));
+            }
+        });
+
     }
     private ArrayList<User> GetDoctors(){
         Cursor cursor = databaseHelper.getDoctorNearYou();
@@ -58,14 +80,24 @@ public class ListOfDoctors extends AppCompatActivity {
             String firstName = cursor.getString(1);
             String lastName = cursor.getString(2);
             String address = cursor.getString(3);
-            User user = new User(doctorId, firstName, lastName, address);
-            // if city has been entered, show the match result
-            if(!stCity.isEmpty() && address.toLowerCase().indexOf(stCity.toLowerCase()) != -1){
+            User user;
+            if((!stCity.isEmpty()) && (address.toLowerCase().indexOf(stCity.toLowerCase()) != -1)) {
+                user = new User(doctorId, firstName, lastName, address);
+                arrayList.add(user);
+            }else if(stCity.isEmpty()){
+                user = new User(doctorId, firstName, lastName, address);
+                arrayList.add(user);
+            }
+                // if city has been entered, show the match result
+           /* if(!stCity.isEmpty() && address.toLowerCase().indexOf(stCity.toLowerCase()) != -1){
+                User user = new User(doctorId, firstName, lastName, address);
                 arrayList.add(user);
             }else{
                 // show all
+                User user = new User(doctorId, firstName, lastName, address);
                 arrayList.add(user);
-            }
+            }*/
+
         }
         return arrayList;
     }
@@ -83,22 +115,15 @@ public class ListOfDoctors extends AppCompatActivity {
 
         LinearLayout vParenRow = (LinearLayout)v.getParent();
         TextView child = (TextView)vParenRow.getChildAt(1);
-
-       /* TextView name = findViewById(R.id.fullName);
-        TextView add = findViewById(R.id.address);
-        String sName = name.getText().toString();
-        String sAddress = add.getText().toString();
-        Bundle bundle = new Bundle();
-        bundle.putString("name", sName);
-        bundle.putString("address", sAddress);*/
        Intent i = new Intent(ListOfDoctors.this, Booking.class);
-       // i.putExtras(bundle);
        i.putExtra("textValue",child.getText().toString());
         startActivity(i);
-       // startActivity(new Intent(ListOfDoctors.this, Booking.class));
     }
 
     public void gotoFindDoctor(View view) {
         startActivity(new Intent(ListOfDoctors.this, FindDoctor.class));
+    }
+    public void gotoLoginActivity(View view){
+        startActivity(new Intent(ListOfDoctors.this, LoginActivity.class));
     }
 }

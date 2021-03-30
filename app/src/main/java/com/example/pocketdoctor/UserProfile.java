@@ -24,7 +24,7 @@ public class UserProfile extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     String userId, sName, sLastName, sEmail, sMsp, sStatus, sPayment;
     ImageView calorieIcon, homeIcon, stethoscopeIcon;
-    Button makePayment, viewCalories;
+    Button makePayment;
 
 
     @Override
@@ -38,10 +38,8 @@ public class UserProfile extends AppCompatActivity {
         msp = findViewById(R.id.txtViewUserMsp);
         databaseHelper = new DatabaseHelper(this);
         makePayment = findViewById(R.id.btnMakePayment);
-        viewCalories = findViewById(R.id.btnViewCalories);
         statusLabel = findViewById(R.id.txtCreateUserEmailLabel6);
 
-        // TODO -->
         status = findViewById(R.id.txtViewStatus);
         getUserProfile();
 
@@ -51,12 +49,6 @@ public class UserProfile extends AppCompatActivity {
 
         //CONTEXTUAL MENU ICON FUNCTION
 
-        viewCalories.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UserProfile.this, FoodTrackerActivity.class));
-            }
-        });
         calorieIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

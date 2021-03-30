@@ -65,6 +65,9 @@ public class UserMain extends AppCompatActivity {
     public void goToProfile(View view){
         startActivity(new Intent(UserMain.this, UserProfile.class));
     }
+    public void gotoLoginActivity(View view){
+        startActivity(new Intent(UserMain.this, LoginActivity.class));
+    }
 
 
 
