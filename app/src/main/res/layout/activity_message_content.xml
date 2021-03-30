@@ -31,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/roboto_regular"
             android:text="@string/messages_history"
             android:textColor="#A08966"
@@ -42,7 +43,7 @@
         <ListView
             android:id="@+id/lstMessageContent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="250dp"
             android:layout_marginTop="24dp"
             android:nestedScrollingEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/edtMessage"
