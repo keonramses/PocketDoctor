@@ -53,6 +53,7 @@ public class BookingPatientMessage extends AppCompatActivity {
             }
             if (success) {
                 Toast.makeText(BookingPatientMessage.this, "Your message was sent to the doctor", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(BookingPatientMessage.this, UserMain.class));
             } else {
                 Toast.makeText(BookingPatientMessage.this, "Sorry, you have book on " + date, Toast.LENGTH_SHORT).show();
             }

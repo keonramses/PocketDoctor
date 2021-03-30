@@ -12,6 +12,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -30,6 +31,8 @@ public class ListOfDoctors extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     ArrayList<User> arrayList;
     MyAdapter myAdapter;
+    ImageView calorieIcon;
+    ImageView homeIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,25 @@ public class ListOfDoctors extends AppCompatActivity {
 
         arrayList = GetDoctors();
         loadDataInListViewII(arrayList);
+
+        calorieIcon = findViewById(R.id.imageViewFood);
+        homeIcon = findViewById(R.id.imageViewHome);
+
+        //CONTEXTUAL MENU ICON FUNCTION
+        calorieIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ListOfDoctors.this, FoodTrackerActivity.class));
+            }
+        });
+
+        //CONTEXTUAL MENU ICON FUNCTION
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ListOfDoctors.this, UserMain.class));
+            }
+        });
 
     }
     private ArrayList<User> GetDoctors(){
