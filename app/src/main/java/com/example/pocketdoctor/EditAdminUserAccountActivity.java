@@ -217,7 +217,12 @@ public class EditAdminUserAccountActivity extends AppCompatActivity {
         buttonCancelEdition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditAdminUserAccountActivity.this, PatientAccountActivity.class));
+                if (!TextUtils.isEmpty(comesFrom)) {
+                    startActivity(new Intent(EditAdminUserAccountActivity.this, UserMain.class));
+                }else if(TextUtils.isEmpty(comesFrom) || comesFrom == null)
+                {
+                    startActivity(new Intent(EditAdminUserAccountActivity.this, HomeAdmin.class));
+                }
             }
         });
     }
