@@ -3,10 +3,14 @@ package com.example.pocketdoctor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.example.pocketdoctor.repository.DatabaseHelper;
 
 public class FindDoctor extends AppCompatActivity {
 
@@ -42,10 +46,16 @@ public class FindDoctor extends AppCompatActivity {
     }
 
     public void gotoListOfDoctors(View view) {
-        Intent i = new Intent(FindDoctor.this, ListOfDoctors.class);
         stringCity = city.getText().toString();
-        i.putExtra("ValueCity",stringCity);
-        startActivity(i);
+        DatabaseHelper databaseHelper = new DatabaseHelper((FindDoctor.this));
+        Cursor cursor = databaseHelper.getDoctorNearLocation(stringCity);
+        if (cursor.getCount() > 0) {
+            Intent i = new Intent(FindDoctor.this, ListOfDoctors.class);
+            i.putExtra("ValueCity", stringCity);
+            startActivity(i);
+        }else {
+            Toast.makeText(FindDoctor.this, "There is no doctor near your address", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void gotoProfileActivity(View view) {
