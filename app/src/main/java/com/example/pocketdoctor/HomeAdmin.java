@@ -44,4 +44,8 @@ public class HomeAdmin extends AppCompatActivity {
         }
         startActivity(i);
     }
+
+    public void goToLogin(View view) {
+        startActivity(new Intent(HomeAdmin.this, LoginActivity.class));
+    }
 }
