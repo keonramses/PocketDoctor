@@ -109,4 +109,20 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/doctor_logout"
+        android:layout_width="56dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="313dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="67dp"
+        android:focusable="auto"
+        android:onClick="goToLogin"
+        android:text="@string/log_out"
+        app:layout_constraintBottom_toTopOf="@+id/listDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

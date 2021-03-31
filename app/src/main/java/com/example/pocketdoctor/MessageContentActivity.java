@@ -78,26 +78,13 @@ public class MessageContentActivity extends AppCompatActivity {
         stethoscopeIcon = findViewById(R.id.imageViewStethoScope);
 
         //CONTEXTUAL MENU ICON FUNCTION
-        calorieIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MessageContentActivity.this, FoodTrackerActivity.class));
-            }
-        });
-        //CONTEXTUAL MENU ICON FUNCTION
         homeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MessageContentActivity.this, UserMain.class));
+                startActivity(new Intent(MessageContentActivity.this, DoctorMain.class));
             }
         });
-        //CONTEXTUAL MENU ICON FUNCTION
-        stethoscopeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MessageContentActivity.this, FindDoctor.class));
-            }
-        });
+
     }
 
     public void initMessageList() {

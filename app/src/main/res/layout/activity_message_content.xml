@@ -115,50 +115,21 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
-                android:id="@+id/imageViewFood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="18dp"
-                android:contentDescription="@string/food_tracker"
-                android:focusableInTouchMode="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageViewHome"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_apple"
-                app:tint="#C4C4C4" />
-
-            <ImageView
                 android:id="@+id/imageViewHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:layout_marginStart="192dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginEnd="191dp"
                 android:contentDescription="@string/imgHomeNavBar"
                 android:focusableInTouchMode="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageViewStethoScope"
-                app:layout_constraintStart_toEndOf="@id/imageViewFood"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/home_24"
                 app:tint="@color/black" />
-
-            <ImageView
-                android:id="@+id/imageViewStethoScope"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="18dp"
-                android:contentDescription="@string/find_doctor"
-                android:focusableInTouchMode="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imageViewHome"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon_stethoscope"
-                app:tint="#C4C4C4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -62,5 +63,9 @@ public class DoctorMain extends AppCompatActivity {
             startActivity(intent);
         });
 
+    }
+
+    public void goToLogin(View view) {
+        startActivity(new Intent(DoctorMain.this, LoginActivity.class));
     }
 }
